@@ -24,18 +24,20 @@ These will all be shown to the visitor as fields on the Website.
 Data Preparation:
 - Complete Significant Data Cleanup and Grouping as required (Complete).
 - Identify the 'target' data for our Machine Learning Models (Complete).
-- Identify the output 'results' that we want to present on the website (Complete). 
+- Identify the output 'results' that we want to present on the website - "Project_3\Working Documents\Import Data to Postgress" (Complete).
+
 
 Database/Hosting:
 - Create the RDS Server to house the Postgress DB (Complete).
 - Create the S3 Bucket to store the incident file (Complete).
 - Upload the incident data file to the existing data into the S3 bucket (Complete).
 - Deploy a Heroku Instance and connect to GitHub Repo (Complete).
-Heroku Website (https://grantnickproj3.herokuapp.com/)
+- Heroku Website (https://grantnickproj3.herokuapp.com/)
 
 
 Data Migration (ETL):
 - Complete initial data cleanup against initial incident file, then using Google Colab, then push that data into the Postgress DB (Complete).
+
 
 Initial Visualisations:
 - Connect the 'clean' (revised) incident data output to Tableau Public to create visualisation (to be completed).
@@ -43,7 +45,7 @@ Initial Visualisations:
 - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by Occupation' (our 3 key values) (to be completed). 
 
 Machine Learning:
-- Using the 'Sex', 'Age' and 'Occupation' column data, create the data models we want to predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).
+- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).
 
 Flask App:
 - to be confirmed...
