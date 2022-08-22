@@ -31,16 +31,16 @@ Database/Hosting:
 - Create the S3 Bucket to store the incident file (Complete).
 - Upload the incident data file to the existing data into the S3 bucket (Complete).
 - Deploy a Heroku Instance and connect to GitHub Repo (Complete).
-# Heroku Website (https://grantnickproj3.herokuapp.com/)
+Heroku Website (https://grantnickproj3.herokuapp.com/)
 
 
 Data Migration (ETL):
 - Complete initial data cleanup against initial incident file, then using Google Colab, then push that data into the Postgress DB (Complete).
 
 Initial Visualisations:
-# Connect the 'clean' (revised) incident data output to Tableau Public to create visualisation (to be completed).
-# Save these visualisations to the repo (as attachment) and so that we can use them in our Website (to be completed).
-# Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by Occupation' (our 3 key values) (to be completed). 
+- Connect the 'clean' (revised) incident data output to Tableau Public to create visualisation (to be completed).
+- Save these visualisations to the repo (as attachment) and so that we can use them in our Website (to be completed).
+- Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by Occupation' (our 3 key values) (to be completed). 
 
 Machine Learning:
 - Using the 'Sex', 'Age' and 'Occupation' column data, create the data models we want to predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).
@@ -54,5 +54,5 @@ HTML Page
 - What to do about predictive...?
 
 Presentation:
-# Basically a summary of the steps above... (to be completed)
-# Use Same Template as last project? 
+- Basically a summary of the steps above... (to be completed)
+- Use Same Template as last project? 
