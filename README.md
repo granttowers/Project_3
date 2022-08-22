@@ -9,7 +9,7 @@ Project Leads and Key Contacts:
 
 We want to develop a series of visualisations depicting elements of the incident data within the US, then create a number of Machine Learning model.
 
-The Model will use the 'Sex', 'Age' and 'Occupation' column data which will be grouped (into smaller number of values to simplify the data model). The website will require require the end user to select a value for their situation, and then the site will predict:
+The Model will use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column data which will be grouped (into smaller number of values to simplify the data model). The website will require require the end user to select a value for their situation, and then the site will predict:
 
 1. The 'Activity' the person will most likely be injured doing.
 2. The 'Body Part Injured' of the person that will be injured.
@@ -32,7 +32,7 @@ Database/Hosting:
 - Create the S3 Bucket to store the incident file (Complete).
 - Upload the incident data file to the existing data into the S3 bucket (Complete).
 - Deploy a Heroku Instance and connect to GitHub Repo (Complete).
-- Heroku Website (https://grantnickproj3.herokuapp.com/)
+- Heroku Website "https://grantnickproj3.herokuapp.com/" (Complete). 
 
 
 Data Migration (ETL):

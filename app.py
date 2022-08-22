@@ -1,4 +1,5 @@
 import os
+from xml.dom.expatbuilder import ElementInfo
 from flask import (
     Flask,
     render_template,
@@ -35,6 +36,7 @@ app = Flask(__name__)
 # #################################################
 # # Flask Routes
 # #################################################
+
 
 @app.route("/")
 def welcome():
@@ -79,6 +81,387 @@ def welcome():
 #         incident_test.append(incident_test_dict)
 
 #     return jsonify(incident_test)
+
+# Create
+
+
+@app.route("/incident_prediction")
+def Results(Sex, Age, Occupation, Operational Process):
+
+    # Binary values for Sex
+    if Sex == 'Female':
+        Sex_Female = 1
+        Sex_Male = 0
+
+    # Binary values for Age
+    if Age == 'Age_<20':
+        Age_<20 = 1
+        Age_20 - 29 = 0
+        Age_30 - 39 = 0
+        Age_40 - 49 = 0 
+        Age_50 - 59 = 0
+        Age_60 - 69 = 0
+        Age_70 - 79 = 0
+        Age_80 - 89 = 0
+
+    elif Age == 'Age_20 - 29':
+        'Age_<20' = 0
+        'Age_20 - 29' = 1
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 0
+
+    elif Age == 'Age_30 - 39':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 1
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 0      
+        
+    elif Age == 'Age_40 - 49':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 1
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 0           
+
+    elif Age == 'Age_50 - 59':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 1
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 0
+
+    elif Age == 'Age_60 - 69':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 1
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 0
+
+    elif Age == 'Age_70 - 79':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 1
+        'Age_80 - 89' = 0
+
+    elif Age == 'Age_80 - 89':
+        'Age_<20' = 0
+        'Age_20 - 29' = 0
+        'Age_30 - 39 '= 0
+        'Age_40 - 49' = 0 
+        'Age_50 - 59' = 0
+        'Age_60 - 69' = 0
+        'Age_70 - 79' = 0
+        'Age_80 - 89' = 1
+
+    # Binary values for Occupation
+    if Occupation == 'Occupation_Apprentice or Trainee Roles':
+        'Occupation_Apprentice or Trainee Roles' = 1
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0	
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+        
+    elif Occupation == 'Occupation_Driller and Support Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 1
+        'Occupation_Explosives Roles' = 0	
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Explosives Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 1
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Fixed Plant Operatorand Support Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 1
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Fixed Plant Operator and Support Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 1
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Labourer Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 1
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Maritime Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 1
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Mine Supervisory and Management Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 1
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Mobile Plant Operator Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 1
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Other Role':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 1
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 1
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Trades Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 1
+        'Occupation_Underground Miner and Support Roles' = 0
+
+    elif Occupation == 'Occupation_Underground Miner and Support Roles':
+        'Occupation_Apprentice or Trainee Roles' = 0
+        'Occupation_Driller and Support Roles' = 0
+        'Occupation_Explosives Roles' = 0
+        'Occupation_Fixed Plant Operator and Support Roles' = 0
+        'Occupation_Labourer Roles' = 0
+        'Occupation_Maritime Roles' = 0
+        'Occupation_Mine Supervisory and Management Roles' = 0
+        'Occupation_Mobile Plant Operator Roles' = 0
+        'Occupation_Other Role' = 0
+        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
+        'Occupation_Trades Roles' = 0
+        'Occupation_Underground Miner and Support Roles' = 1
+
+
+
+
+
+    elif Edu == "High School diploma":
+        none = 0
+        High_School = 1
+        Uni = 0
+        Masters = 0
+
+    elif Edu == "Tertiary education":
+        none = 0
+        High_School = 0
+        Uni = 1
+        Masters = 0
+
+    elif Edu == "Master's or Doctorate":
+        none = 0
+        High_School = 0
+        Uni = 0
+        Masters = 1
+
+    # binary of employment status before first baby
+
+    if Emp == "unemployed":
+        unemployed = 1
+        casual = 0
+        part_time = 0
+        full_time = 0
+
+    elif Emp == "Casual":
+        unemployed = 0
+        casual = 1
+        part_time = 0
+        full_time = 0
+
+    elif Emp == "Part-time":
+        unemployed = 0
+        casual = 0
+        part_time = 1
+        full_time = 0
+
+    elif Emp == "Full-time":
+        unemployed = 0
+        casual = 0
+        part_time = 0
+        full_time = 1
+
+    # partnerd binary
+
+    if Par == "Single":
+        Single = 1
+        Partnered = 0
+
+    elif Par == "Partnered":
+        Single = 1
+        Partnered = 0
+
+    # maternity eligabiluty binary
+
+    if Mat == "None":
+        none_1 = 1
+        Yes_paying = 0
+        Yes_unpaid = 0
+
+    elif Mat == "Yes - and we are paying!":
+        none_1 = 0
+        Yes_paying = 1
+        Yes_unpaid = 0
+
+    elif Mat == "Yes - but unpaid":
+        none_1 = 0
+        Yes_paying = 0
+        Yes_unpaid = 1
+
+    # Css eligability binary
+
+    if Css == "Yes":
+        css_Yes = 1
+        css_No = 0
+
+    elif Css == "No":
+        css_Yes = 0
+        css_No = 1
+
+    # Help binary
+    if Help == "No":
+        Hel_Yes_sc = 0
+        Hel_Yes_need = 0
+        Help_no = 1
+
+    elif Help == "Yes-Scheduled":
+        Hel_Yes_sc = 1
+        Hel_Yes_need = 0
+        Help_no = 0
+
+    elif Help == "Yes- As needed":
+        Hel_Yes_sc = 0
+        Hel_Yes_need = 1
+        Help_no = 0
+
+
+User_Response_List = [sex, age, occupation, operational process]
+
+print(Help_no)
 
 
 # @app.route("/api/v1.0/injury_details")
