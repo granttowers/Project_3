@@ -1,67 +1,487 @@
-#Header {
+/* .Bkground { 
+  background-color: rgba(233, 227, 220, 0.849);
+  margin-left: 0px;
+  margin-right:0 px;
+  padding: 0px;} */
+
+
+  .astrodivider {
+    margin:64px auto;
+    width:400px; 
+    max-width: 100%;
+    position:relative;
+  }
+  
+.astrodividermask { 
+      overflow:hidden; height:20px; 
+  }
+  
+.astrodividermask:after { 
+        content:''; 
+        display:block; margin:-25px auto 0;
+        width:100%; height:25px;  
+          border-radius:125px / 12px;
+         box-shadow:0 0 8px #049372;
+  }
+.astrodivider span {
+      width:50px; height:50px; 
+      position:absolute; 
+      bottom:100%; margin-bottom:-25px;
+      left:50%; margin-left:-25px;
+      border-radius:100%;
+     box-shadow:0 2px 4px #4fb39c;
+      background:#fff;
+  }
+.astrodivider i {
+      position:absolute;
+      top:4px; bottom:4px;
+      left:4px; right:4px;
+      border-radius:100%;
+      border:1px dashed #68beaa;
+      text-align:center;
+      line-height:40px;
+      font-style:normal;
+       color:#049372;
+  }
+
+#box1 {
+  color:rgb(255, 196, 0);
+  height: 100px;
+  padding: 10px;
+  background:#01415C;
+  font-weight: 500;
+}
+
+#box2 {
+  color:#01415C;
+  height: 50px;
+  padding: 10px;
+  background:rgb(255, 196, 0);
+  font-weight: 500;
+
+}
+
+.bg {
+  /* The image used */
+  background-image: url("static/images/face_background.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#Machine {
+  font-style: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 800;
+  font-size: larger;
+  color:rgb(255, 196, 0);
+
+}
+
+#otherfonts {
+  font-style: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 500;
+  font-size: larger;
+  color:rgb(255, 196, 0);
+  margin-top: 10;
   text-align: center;
+
+}
+
+#welcomefonts {
+  font-style: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 1000;
+  font-size: 14;
+  color: rgb(255, 196, 0);
+  text-align: center;
+
+
+}
+
+.answerbox{
+  height: 400px;
+  /* width: 1500px; */
+  padding: 200px;
+  margin-bottom: 200px;
+  margin-top:200px;
+  margin-left:200px; 
+  margin-right:200px;
+  color:  rgb(144, 226, 226);
+  background: #01415C;
+  opacity: .7;
+  outline-color: turquoise;
+  outline-width: 10px;
+  font-size: xx-large;
+  text-align: center;
+
+}
+
+.welcomebox{
+  height: 400px;
+  /* width: 1500px; */
+  padding: 50px;
+  margin-bottom: 200px;
+  margin-top:200px;
+  margin-left:200px; 
+  margin-right:200px;
+  color:  rgb(144, 226, 226);
+  background: #01415C;
+  opacity: .7;
+  outline-color: turquoise;
+  outline-width: 10px;
+  font-size: xx-large;
+  text-align: center;
+
+}
+
+.visbox{
+  height: 800px;
+  /* width: 1000px;  */
+  padding: 50px;
+  margin-bottom: 200px;
+  margin-top:200px;
+  margin-left:200px; 
+  margin-right:200px;
+  color:  rgb(144, 226, 226);
+  background: #01415C;
+  opacity: .9;
+  outline-color: turquoise;
+  outline-width: 10px;
+  font-size: xx-large;
+  text-align: center;
+}
+
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.column1 {
+  float: center;
+  width: 100%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+ 
+.navbar li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.box_l {
+  height: 450px;
+  padding: 50px;
+  margin-bottom: 20px;
+  margin-top:20px;
+  margin-left:20px; 
+  margin-right:20px;
+  color: rgb(56, 160, 179);
+  background: white;
+}
+
+.text1 {
+  color: rgb(255, 196, 0);
+}
+
+.box_r {
+  height: 350px;
+  padding: 50px;
+  margin-bottom: 20px;
+  margin-top:20px;
+  margin-left:20px; 
+  margin-right:20px;
+  color:  rgb(56, 160, 179);
+  background: white;
+}
+
+
+.margin-top-80 {
+  margin-top: 80px;
+}
+
+.box h1 {
+  color:rgb(56, 160, 179);
+  font-size: 14pt;
+}
+
+.navbar li {
+  display: inline-block;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 3px;}
+
+.navbar-custom {
+  background-color: white;
+  align-content: right ;
+  }
+
+.border1{
+  border:1px solid rgb(56, 160, 179);
+}
+
+/* comparison page */ 
+.box_comp {
+  height: 1000px;
+  width: 2500px;
+  padding: 50px;
+  margin-bottom: 20px;
+  margin-top:50px;
+  margin-left:200px; 
+  margin-right:200px;
+  color:  rgb(255, 196, 0);
+  background: #01415C;
+  opacity: .7;
+  outline-color: turquoise;
+  outline-width: 10px;
+  overflow: scroll;
+  
+}
+.box_comp2 {
+  height: 1600px;
+  /* width: 1500px; */
+  padding: 50px;
+  margin-bottom: 20px;
+  margin-top:50px;
+  margin-left:200px; 
+  margin-right:200px;
+  color:  rgb(255, 196, 0);
+  background: #01415C;
+  opacity: .7;
+  outline-color: turquoise;
+  outline-width: 10px;
+  font-size: 14pt;
+  text-align: center;
+
+}
+
+.column_comp {
+  float: left;
+  width: 40%;
+  margin-left: 3%;
+  margin-right:3%;
+}
+
+.caption {
   font-size: 20px;
-  font-style: bolder;
-  color: black;
-}
-
-#sample-metadata {
-  border: 1px outset black;
-  height: 215px;
-  text-align: left;
-}
-
-h2 {
+  color: rgb(56, 160, 179); 
   text-align: center;
-  font-size: 30px;
-  font-style: italic;
-  color: black;
-}
-
-p {
-  text-align: center;
-  font-size: 30px;
-  color: black;
-}
-
-#h5-Center {
-  text-align: center;
-  font-size: 24px;
-  color: black;
-}
-
-#h5-Left {
-  text-align: left;
-  font-size: 24px;
-  color: black;
-}
-
-#h5-Left {
-  text-align: left;
-  font-size: 24px;
-  color: black;
+  width: 230px;
+ 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
-h3.panel-title {
-  text-align: left;
-  font-size: 24px;
-  border: 1px outset black;
-  color: White;
+/* data page */ 
+
+.Bkground_data { 
+  height:27500;
+  background-color: rgba(233, 227, 220, 0.849);
+  margin-left: 0px;
+  margin-right:0 px;
+  padding: 0px;}
+
+.button_results {
+  height: 200px; 
+  padding: 50px;
+  margin-bottom: 50px;
+  margin-top:10px;
+  margin-left:50px; 
+  margin-right:50px;
+  color:  rgb(56, 160, 179);
+  background: white;
+  width: 80%;
+  text-align:center;
+
 }
 
-/* Default Heights of Div Containers */
-#GeneralDetails {
-  height: 420px;
-}
+@media (max-width: 800px) {
+    
+    #box {
+      font:larger;
+      color:white;
+      height: 60px;
+      padding: 10px;
+      background: rgb(56, 160, 179);
+    }
+    .Bkground { 
+      background-color: rgb(252, 234, 213);
+    margin: 0px;
+    padding: 0px;}
+    
+    #box2 {
+      color:white;
+      display: inline-block;
+      height: 40px;
+      padding: 10px;
+      width: 100%;
+      background: rgb(56, 160, 179);
+    }
+    
+    .navbar li a {
+      color: #000;
+      text-decoration: none;}
+    
+    .box_l {
+      height: 550px;
+      padding: 50px;
+      margin-bottom: 20px;
+      margin-top:20px;
+      margin-left:20px; 
+      margin-right:20px;
+      color:  rgb(56, 160, 179);
+      background: white;
+      }
+      
+    .box_r {
+      height: 250px;
+      padding: 50px;
+      margin-bottom: 20px;
+       margin-top:20px;
+      margin-left:20px; 
+      margin-right:20px;
+      color:  rgb(56, 160, 179);
+      background: white;
+      }
 
-#MineIncidentTypes {
-  height: 420px;
-}
+    .text1 {
+      color: rgb(26, 40, 43)
+      }
+    .margin-top-80 {
+      margin-top: 80px;
+    }
+    .box h1 {color:rgb(56, 160, 179);
+      font-size: 14pt; }
+    
+    .navbar li {
+      display: inline-block;
+      padding: 20px;
+      cursor: pointer;
+      border-radius: 3px;}
 
-.jumbotron {
-  padding-left: 5;
-  padding-right: 5;
-  padding-top: 5;
-  padding-bottom: 5;
-}
+    .navbar-custom {
+      background-color: rgb(56, 160, 179);
+    }
+
+    .column {
+      width: 25%;
+    }
+
+    /* comparison page*/ 
+
+    .column_comp {
+      width: 100%;
+    }
+
+    .box_comp {
+      height: 1000px;
+      padding: 50px;
+      margin-bottom: 20px;
+      margin-top:20px;
+      margin-left:20px; 
+      margin-right:50px;
+      color:  rgb(255, 196, 0);
+      background: #01415C;
+      opacity: .7;
+      outline-color: rgb(255, 196, 0);
+      outline-width: 10px;
+      overflow: scroll;
+    }
+    .box_comp2 {
+      height: 800px;
+      padding: 50px;
+      margin-bottom: 20px;
+      margin-top:20px;
+      margin-left:20px; 
+      margin-right:50px;
+      color:  rgb(144, 226, 226);
+      background: #01415C;
+      opacity: .7;
+      outline-color: turquoise;
+      outline-width: 10px;
+
+    }
+
+    .answerbox{
+      height: 600px;
+      padding: 200px;
+      margin-bottom: 200px;
+      margin-top:200px;
+      margin-left:200px; 
+      margin-right:200px;
+      color:  rgb(144, 226, 226);
+      background: #01415C;
+      opacity: .7;
+      outline-color: turquoise;
+      outline-width: 10px;
+      font-size: xx-large;
+      text-align: center;
+    
+    }
+  } 
+
+  @media (max-width: 600px) {
+    
+    .box_comp {
+      height: 800px;
+      padding: 50px;
+      margin-bottom: 20px;
+      margin-top:20px;
+      margin-left:20px; 
+      margin-right:50px;
+      color:  rgb(255, 196, 0);
+      background: #01415C;
+      opacity: .7;
+      outline-color:rgb(255, 196, 0);
+      outline-width: 10px;
+      overflow: scroll;
+    }
+
+    .box_comp2 {
+      height: 600px;
+      padding: 50px;
+      margin-bottom: 20px;
+      margin-top:20px;
+      margin-left:20px; 
+      margin-right:50px;
+      color:  rgb(144, 226, 226);
+      background: #01415C;
+      opacity: .7;
+      outline-color: turquoise;
+      outline-width: 10px;
+
+    }
+
+    .answerbox{
+      height: 400px;
+      padding: 200px;
+      margin-bottom: 200px;
+      margin-top:200px;
+      margin-left:200px; 
+      margin-right:200px;
+      color:  rgb(144, 226, 226);
+      background: #01415C;
+      opacity: .7;
+      outline-color: turquoise;
+      outline-width: 10px;
+      font-size: xx-large;
+      text-align: center;
+    
+    }
+
+  } 
