@@ -53,14 +53,9 @@ def questions():
     return render_template("questions.html")
 
 # Route to the visualisations page template
-@app.route("/visualisations.html")
+@app.route("/Visualisations.html")
 def visualisations():
     return render_template("Visualisations.html")
-
-# Route to the machine learning page template
-@app.route("/machinelearning.html")
-def machinelearning():
-    return render_template("Machinelearning.html")
 
 
 # # Route to the incident prediction page template
