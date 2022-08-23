@@ -42,26 +42,26 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-# # Route to the project page template
-# @app.route("/project")
-# def project():
-#     return render_template("/templates/project.html")
+# Route to the project page template
+@app.route("/project")
+def project():
+    return render_template("project.html")
 
+# Route to the questions page template
+@app.route("/entry_questionnaire")
+def questions():
+    return render_template("questions.html")
 
-# # Route to the questions page template
-# @app.route("/entry_questionnaire")
-# def questions():
-#     return render_template("/templates/questions.html")
+# Route to the visualisations page template
+@app.route("/visualisations")
+def visualisations():
+    return render_template("visualisations.html")
 
-# # Route to the visualisations page template
-# @app.route("/visualisations")
-# def visualisations():
-#     return render_template("/templates/Visualisations.html")
-
-# # Route to the visualisations page template
+# # Route to the machine learning page template
 # @app.route("/machinelearning")
 # def visualisations():
-#     return render_template("/templates/Machinelearning.html")
+#     return render_template("machinelearning.html")
+
 
 # # Route to the incident prediction page template
 # @app.route("/incident_prediction=<sex>=<age>=<occupation>=<operational_process>")
