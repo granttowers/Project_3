@@ -58,8 +58,8 @@ def visualisations():
     return render_template("Visualisations.html")
 
 # Route to the incident prediction page template
-@app.route("/Answer.html")
-def incident_prediction(sex, age, occupation, operational_process):
+@app.route("/Answer=<sex>=<age>=<occupation>=<operational_process>")
+def answers(sex, age, occupation, operational_process):
 
 # Binary values for Sex
     if sex == 'Female':
