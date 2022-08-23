@@ -7,27 +7,6 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 
 #################################################
-# Database Setup
-#################################################
-
-# Create the engine to connect to local server
-# engine = (create_engine(f'postgresql://postgres:' +
-#           db_key+f'@localhost:5432/Project_2'))
-
-# # reflect an existing database into a new model
-# Base = automap_base()
-
-# # reflect the tables
-# Base.prepare(engine, reflect=True)
-# engine.table_names()
-
-# # Save references to each table
-# incident_details = Base.classes.incident_details
-# injured_person_details = Base.classes.injured_person_details
-# injury_details = Base.classes.injury_details
-# company_details = Base.classes.company_details
-
-#################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
@@ -35,7 +14,6 @@ app = Flask(__name__)
 ###################################################
 # Flask Routes
 ###################################################
-
 
 # Route to render the home page template
 @app.route("/")

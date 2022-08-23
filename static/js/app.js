@@ -480,7 +480,7 @@ function optionChanged() {
 
 
   // Create text string to create website address, including selected variable options 
-  var results = (`${Age_Group}=${Gender_Group}=${Occupation_Group}=${OperationalProcess_Group}`)
+  var results = (`${Gender_Group}=${Age_Group}=${Occupation_Group}=${OperationalProcess_Group}`)
   console.log(results)
 
   // Create event listener to trigger transition to new page
