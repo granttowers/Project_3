@@ -448,5 +448,6 @@ def answers(sex, age, occupation, operational_process):
     # f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
     # f"The predicted Activity will be:   {ACT_prediction}<br>"
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
