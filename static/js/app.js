@@ -29,7 +29,7 @@ gender.forEach((num) => {
 
 // Employee Occupation 
 
-var occupation = ["Apprentice/Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant "]
+var occupation = ["Apprentice/Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant Operator and Support Roles", "Laborer Roles", "Maritime Roles", "Supervisory/Management Roles", "Mobile Plant Operators", "Other Roles", "Technical Services", "Trade Roles", "Underground Mine and Support"]
 
 // Populate dropbox with Occupation 
 occupation.forEach((edu) => {
@@ -43,13 +43,13 @@ occupation.forEach((edu) => {
 
 
 
-//level of employment before first kids
+// Operational Process 
 
-var prekidEmp = ["unemployed", "Casual", "Part-time", "Full-time"]
+var operationalProcess  = ["Crushing or Processing", "Coal Mining Culm Banks activities", "Dredging Acvitites", "Non Mine Workshops and Yards", "Office Activites", "Other Surface Facility", "Surface Mining Operations", "Underground Workshops/Yards","Underground Mining Operations" ]
 
-// Populate dropbox with level of employment 
-prekidEmp.forEach((emp) => {
-   var DDemp = d3.select("#empLevel");
+// Populate dropbox with Operational Processes 
+operationalProcess.forEach((emp) => {
+   var DDemp = d3.select("#OpProcess");
    var newoption = DDemp.append("option");
    newoption.attr("value", emp);
    newoption.text(emp);
@@ -58,221 +58,439 @@ prekidEmp.forEach((emp) => {
 
 
 function optionChanged() {
+
+
+
+// Age Group Switching
+var DDpar = d3.select("#AgeGroup");
+Par = DDpar.node().value;
+
+switch (ageGroup){
+    case "Under 20":
+      Age_Under_20 = 1,
+      Age_20_29 = 0
+      Age_30_39 = 0
+      Age_40_49 = 0
+      Age_50_59 = 0
+      Age_60_69 = 0
+      Age_70_79 = 0
+      Age_80_89 = 0
+    break;
+
+    case "20 - 29":
+      Age_Under_20 = 0,
+      Age_20_29 = 1,
+      Age_30_39 = 0,
+      Age_40_49 = 0,
+      Age_50_59 = 0,
+      Age_60_69 = 0,
+      Age_70_79 = 0,
+      Age_80_89 = 0
+    break; 
+
+    case "30 - 39":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 1,
+      Age_40_49 = 0,
+      Age_50_59 = 0,
+      Age_60_69 = 0,
+      Age_70_79 = 0,
+      Age_80_89 = 0  
+    break; 
+
+    case "40 - 49":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 0,
+      Age_40_49 = 1,
+      Age_50_59 = 0,
+      Age_60_69 = 0,
+      Age_70_79 = 0,
+      Age_80_89 = 0
+    break; 
+
+    case "50 - 59":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 0,
+      Age_40_49 = 0,
+      Age_50_59 = 1,
+      Age_60_69 = 0,
+      Age_70_79 = 0,
+      Age_80_89 = 0
+    break; 
+
+    case "60 - 69":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 0,
+      Age_40_49 = 0,
+      Age_50_59 = 0,
+      Age_60_69 = 1,
+      Age_70_79 = 0,
+      Age_80_89 = 0
+    break; 
+
+    case "70 - 79":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 0,
+      Age_40_49 = 0,
+      Age_50_59 = 0,
+      Age_60_69 = 0,
+      Age_70_79 = 1,
+      Age_80_89 = 0
+    break;
+
+    case "80 - 89":
+      Age_Under_20 = 0,
+      Age_20_29 = 0,
+      Age_30_39 = 0,
+      Age_40_49 = 0,
+      Age_50_59 = 0,
+      Age_60_69 = 0,
+      Age_70_79 = 0,
+      Age_80_89 = 1
+    break;
+  }
   
+  console.log(Par); 
+  console.log(Age_Under_20, Age_20_29, Age_30_39, Age_40_49, Age_50_59, Age_60_69, Age_70_79, Age_80_89)
 
-  // Age 
-var age_input = d3.select("input")
-var age = age_input.property('value');
-
-
-// Number of kids 
-var DDkids = d3.select("#selNumKids");
-
+// Gender
+var DDkids = d3.select("#EmployeeGender");
 NumofKids = DDkids.node().value;
 
-console.log(age, NumofKids); 
+  switch (gender){
+    case "Female":
+        Sex_Female = 1,
+        Sex_Male = 0
+    break; 
 
+    case "Male":
+        Sex_Female = 0,
+        Sex_Male = 1
+    break; 
+}
 
-// level of education
+console.log(DDkids); 
+console.log(Sex_Female, Sex_Male)
 
-var DDedu = d3.select("#education");
+  // Occupation Group Switching
+var DDedu = d3.select("#Occupation");
 Edu = DDedu.node().value;
 
-switch (Edu){
-    case "none":
-      none = 1,
-      High_School = 0,
-      Uni = 0,
-      Masters = 0
-    
-      break; 
+  switch (OccupationGroup) {
+    case "Apprentice/Trainee":
+      Occupation_Apprentice_or_Trainee_Roles = 1,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
 
-    case "High School diploma": 
-    none = 0,
-    High_School = 1,
-    Uni = 0,
-    Masters = 0
-  
-    break; 
+    case "Driller and Support Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 1,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
 
-    case "Tertiary education": 
-    none = 0,
-    High_School = 0,
-    Uni = 1,
-    Masters = 0
-  
-    break; 
+    case "Explosives Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 1,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
 
-    case "Master's or Doctorate": 
-    none = 0,
-    High_School = 0,
-    Uni = 0,
-    Masters = 1
-  
-    break; 
+    case "Fixed Plant Operator and Support Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 1,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
 
+    case "Labourer Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 1,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Maritime Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 1,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Supervisory/Management Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 1,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Mobile Plant Operators":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 1,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Other Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 1,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Technical Services":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 1,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Trade Roles":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 1,
+        Occupation_Underground_Miner_and_Support_Roles = 0
+      break;
+
+    case "Underground Mine and Support":
+      Occupation_Apprentice_or_Trainee_Roles = 0,
+        Occupation_Driller_and_Support_Roles = 0,
+        Occupation_Explosives_Roles = 0,
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0,
+        Occupation_Labourer_Roles = 0,
+        Occupation_Maritime_Roles = 0,
+        Occupation_Mine_Supervisory_and_Management_Roles = 0,
+        Occupation_Mobile_Plant_Operator_Roles = 0,
+        Occupation_Other_Role = 0,
+        Occupation_Technical_Services_Roles = 0,
+        Occupation_Trades_Roles = 0,
+        Occupation_Underground_Miner_and_Support_Roles = 1
+      break;
   }
 
-  console.log(Edu); 
-  console.log(High_School, Masters, none, Uni)
-
-
-
-  //level of employment before first kids
-  var DDemp = d3.select("#empLevel");
+  console.log(DDedu);
+  console.log(Occupation_Apprentice_or_Trainee_Roles, Occupation_Driller_and_Support_Roles, Occupation_Explosives_Roles, Occupation_Fixed_Plant_Operator_and_Support_Roles, Occupation_Labourer_Roles, Occupation_Maritime_Roles, Occupation_Mine_Supervisory_and_Management_Roles, Occupation_Mobile_Plant_Operator_Roles, Occupation_Other_Role, Occupation_Technical_Services_Roles, Occupation_Trades_Roles, Occupation_Underground_Miner_and_Support_Roles)
+  
+  
+  // Operational Processing Group
+  var DDemp = d3.select("#OpProcess");
   Emp = DDemp.node().value;
 
-    switch (Emp){
-    case "unemployed":
-      unemployed = 1,
-      casual = 0,
-      part_time = 0,
-      full_time = 0
-    
-      break; 
+  switch (OperationalProcessGroup) {
+    case "Crushing or Processing":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 1,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
 
-    case "Casual": 
-    unemployed = 0,
-    casual = 1,
-    part_time = 0,
-    full_time = 0
-  
-    break; 
+    case "Coal Mining Culm Banks activities":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 1,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
 
-    case "Part-time": 
-    unemployed = 0,
-    casual = 0,
-    part_time = 1,
-    full_time = 0
-  
-    break; 
+    case "Dredging Acvitites":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 1,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
 
-    case "Full-time": 
-    unemployed = 0,
-    casual = 0,
-    part_time = 0,
-    full_time = 1
-  
-    break; 
+    case "Non Mine Workshops and Yards":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 1,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
+
+    case "Office Activites":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 1,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
+
+    case "Other Surface Facility":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 1,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
+
+    case "Surface Mining Operations":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 1,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
+
+    case "Underground Workshops/Yards":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 1,
+        Operational_Process_Underground_Mining_Operations = 0
+      break;
+
+    case "Underground Mining Operations":
+      Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
+        Operational_Process_Dredging_Activities = 0,
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0,
+        Operational_Process_Office_Located_on_Mine = 0,
+        Operational_Process_Other_Surface_Facility = 0,
+        Operational_Process_Surface_Mining_Operations = 0,
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0,
+        Operational_Process_Underground_Mining_Operations = 1
+      break;
   }
+  console.log(DDemp);
+  console.log(Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations)
 
-  console.log(Emp); 
-  console.log(unemployed, casual, part_time, full_time)
-
-  // partnered
-  var DDpar = d3.select("#partner");
-  Par = DDpar.node().value;
-
-    switch (Par){
-    case "Single":
-      Single = 1,
-      Partnered = 0
-    
-      break; 
-
-    case "Partnered": 
-    Single = 1,
-    Partnered = 0
-  
-    break; 
-   }
-
-   console.log(Par); 
-   console.log(Single, Partnered)
-
-
-   // mat leave eligability
-   var DDmat = d3.select("#matleave");
-   Mat = DDmat.node().value;
-
-
-     switch (Mat){
-    case "None":
-      None = 1,
-      Yes_paying = 0,
-      Yes_unpaid = 0
-    
-      break; 
-
-    case "Yes - and we are paying!": 
-    None = 0,
-    Yes_paying = 1,
-    Yes_unpaid = 0
-  
-    break; 
-
-    case "Yes - but unpaid": 
-    None = 0,
-    Yes_paying = 0,
-    Yes_unpaid = 1
-  
-    break; 
-   }
-
-   console.log(Mat); 
-   console.log(None, Yes_paying, Yes_unpaid)
-
-   // css eligability
-
-   var DDcss = d3.select("#cssElig");
-   Css = DDcss.node().value;
-
-  switch (Css){
-    case "Yes":
-      Yes = 1,
-      No = 0
-    
-      break; 
-
-    case "No": 
-    Yes = 0,
-    No = 1
-  
-    break; 
-
-   }
-
-   console.log(Css); 
-   console.log(Yes, No)
-   //help 
-
-    var DDhel = d3.select("#help");
-    Help = DDhel.node().value;
-
-   switch (Help){
-    case "Yes-Scheduled":
-      Yes = 1,
-      No = 0
-    
-      break; 
-
-    case "Yes - As needed": 
-    Yes = 0,
-    No = 1
-  
-    break; 
-
-    case "No": 
-    Yes = 0,
-    No = 1
-  
-    break; 
-
-}; 
-
-
-console.log(Help); 
-console.log(Yes, No)
-
-
-var results = ( `${age}=${NumofKids}=${Edu}=${Emp}=${Par}=${Mat}=${Css}=${Help}`)
+var results = ( `${NumofKids}=${Edu}=${Emp}=${Par}`)
 
 
  
 console.log(results)
 
 
-d3.select("#clicked").attr("href", `answers=${results}`).html;
+d3.select("#clicked").attr("href", `Answers=${results}`).html;
 // Css = DDcss.node().value;
 
 console.log(text)
