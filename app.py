@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, jsonify, request
-import pandas as pd 
+import pandas as pd
 import os
-import pickle 
+import pickle
 import sys
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -43,24 +43,30 @@ def home():
     return render_template("index.html")
 
 # Route to the project page template
+
+
 @app.route("/project")
 def project():
     return render_template("project.html")
 
 # Route to the questions page template
-@app.route("/entry_questionnaire")
+
+
+@app.route("/questions")
 def questions():
     return render_template("questions.html")
 
 # Route to the visualisations page template
+
+
 @app.route("/visualisations")
 def visualisations():
-    return render_template("visualisations.html")
+    return render_template("Visualisations.html")
 
-# # Route to the machine learning page template
-# @app.route("/machinelearning")
-# def visualisations():
-#     return render_template("machinelearning.html")
+# Route to the machine learning page template
+@app.route("/machinelearning")
+def machinelearning():
+    return render_template("Machinelearning.html")
 
 
 # # Route to the incident prediction page template
@@ -77,7 +83,7 @@ def visualisations():
 #         Age_Under_20 = 1
 #         Age_20_29 = 0
 #         Age_30_39 = 0
-#         Age_40_49 = 0 
+#         Age_40_49 = 0
 #         Age_50_59 = 0
 #         Age_60_69 = 0
 #         Age_70_79 = 0
@@ -87,7 +93,7 @@ def visualisations():
 #         Age_Under_20 = 0
 #         Age_20_29 = 1
 #         Age_30_39 = 0
-#         Age_40_49 = 0 
+#         Age_40_49 = 0
 #         Age_50_59 = 0
 #         Age_60_69 = 0
 #         Age_70_79 = 0
@@ -97,7 +103,7 @@ def visualisations():
 #         Age_Under_20 = 0
 #         Age_20_29 = 0
 #         Age_30_39 = 1
-#         Age_40_49 = 0 
+#         Age_40_49 = 0
 #         Age_50_59 = 0
 #         Age_60_69 = 0
 #         Age_70_79 = 0
@@ -107,7 +113,7 @@ def visualisations():
 #         Age_Under_20 = 0
 #         Age_20_29 = 0
 #         Age_30_39 = 0
-#         Age_40_49 = 1 
+#         Age_40_49 = 1
 #         Age_50_59 = 0
 #         Age_60_69 = 0
 #         Age_70_79 = 0
@@ -388,7 +394,7 @@ def visualisations():
 #         Operational_Process_Surface_Mining_Operations = 0
 #         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
 #         Operational_Process_Underground_Mining_Operations = 0
-        
+
 #     elif operational_process == 'Operational_Process_Surface_Mining_Operations':
 #         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
 #         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
@@ -474,11 +480,11 @@ def visualisations():
 #     # f"Entered Gender: Female: {Sex_Female}, Male: {Sex_Male}<br/>"
 #     # f"Entered Age: Under 20: {Age_Under_20}, 20-29: {Age_20_29}, 30-39: {Age_30_39}, 40-49: {Age_40_49}, 50-59: {Age_50_59}, 60-69: {Age_60_69}, 70-79: {Age_70_79}, 80-89: {Age_80_89}<br/>"
 
-#     # if NOI_prediction == "Yes" : 
+#     # if NOI_prediction == "Yes" :
 #     #     Content = "Yes!! Your hard working employee will return."
-#     # elif NOI_prediction =="No": 
+#     # elif NOI_prediction =="No":
 #     #     Content = "No! Sorry. Have you considered birthday day off? "
-#     # else: 
+#     # else:
 #     #     Content = "Sorry, I don't know, I'm a good model - not a great model."
 
 if __name__ == "__main__":
