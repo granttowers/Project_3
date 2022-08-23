@@ -65,7 +65,7 @@ function optionChanged() {
 var DDpar = d3.select("#AgeGroup");
 Par = DDpar.node().value;
 
-switch (ageGroup){
+switch (Par){
     case "Under 20":
       Age_Under_20 = 1,
       Age_20_29 = 0
@@ -162,7 +162,7 @@ switch (ageGroup){
 var DDkids = d3.select("#EmployeeGender");
 NumofKids = DDkids.node().value;
 
-  switch (gender){
+  switch (NumofKids){
     case "Female":
         Sex_Female = 1,
         Sex_Male = 0
@@ -181,7 +181,7 @@ console.log(Sex_Female, Sex_Male)
 var DDedu = d3.select("#Occupation");
 Edu = DDedu.node().value;
 
-  switch (OccupationGroup) {
+  switch (Edu) {
     case "Apprentice/Trainee":
       Occupation_Apprentice_or_Trainee_Roles = 1,
         Occupation_Driller_and_Support_Roles = 0,
@@ -371,7 +371,7 @@ Edu = DDedu.node().value;
   var DDemp = d3.select("#OpProcess");
   Emp = DDemp.node().value;
 
-  switch (OperationalProcessGroup) {
+  switch (Emp) {
     case "Crushing or Processing":
       Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 1,
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
