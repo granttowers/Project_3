@@ -27,7 +27,7 @@ gender.forEach((person2) => {
 
 
 // Employee Occupation 
-var occupation = ["Apprentice/Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant Operator and Support Roles", "Labourer Roles", "Maritime Roles", "Supervisory/Management Roles", "Mobile Plant Operators", "Other Roles", "Technical Services", "Trade Roles", "Underground Mine and Support"]
+var occupation = ["Apprentice or Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant Operator and Support Roles", "Labourer Roles", "Maritime Roles", "Supervisory and Management Roles", "Mobile Plant Operators", "Other Roles", "Technical Services", "Trade Roles", "Underground Mine and Support"]
 
 // Populate dropbox with Occupation 
 occupation.forEach((person3) => {
@@ -40,7 +40,7 @@ occupation.forEach((person3) => {
 
 
 // Operational Process 
-var operationalprocess = ["Crushing or Processing", "Coal Mining Culm Banks Activities", "Dredging Acvitites", "Non Mine Workshops and Yards", "Office Activites", "Other Surface Facility", "Surface Mining Operations", "Underground Workshops/Yards", "Underground Mining Operations"]
+var operationalprocess = ["Crushing or Processing", "Coal Mining Culm Banks Activities", "Dredging Acvitites", "Non Mine Workshops and Yards", "Office Activites", "Other Surface Facility", "Surface Mining Operations", "Underground Workshops and Yards", "Underground Mining Operations"]
 
 // Populate dropbox with Operational Processes 
 operationalprocess.forEach((person4) => {
@@ -177,7 +177,7 @@ function optionChanged() {
   Occupation_Group = dd_occupation.node().value;
 
   switch (Occupation_Group) {
-    case "Apprentice/Trainee":
+    case "Apprentice or Trainee":
       Occupation_Apprentice_or_Trainee_Roles = 1,
         Occupation_Driller_and_Support_Roles = 0,
         Occupation_Explosives_Roles = 0,
@@ -267,7 +267,7 @@ function optionChanged() {
         Occupation_Underground_Miner_and_Support_Roles = 0
       break;
 
-    case "Supervisory/Management Roles":
+    case "Supervisory and Management Roles":
       Occupation_Apprentice_or_Trainee_Roles = 0,
         Occupation_Driller_and_Support_Roles = 0,
         Occupation_Explosives_Roles = 0,
@@ -451,7 +451,7 @@ function optionChanged() {
         Operational_Process_Underground_Mining_Operations = 0
       break;
 
-    case "Underground Workshops/Yards":
+    case "Underground Workshops and Yards":
       Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0,
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0,
         Operational_Process_Dredging_Activities = 0,
