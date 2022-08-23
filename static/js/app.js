@@ -484,7 +484,7 @@ function optionChanged() {
   console.log(results)
 
   // Create event listener to trigger transition to new page
-  d3.select("#clicked").attr("href", `answers=${results}`).html;
+  d3.select("#clicked").attr("href", `Answer=${results}`).html;
   console.log(text)
 };
 
