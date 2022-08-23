@@ -483,7 +483,7 @@ Edu = DDedu.node().value;
   console.log(DDemp);
   console.log(Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations)
 
-var results = ( `${NumofKids}=${Edu}=${Emp}=${Par}`)
+var results = ( `${NumofKids}=${Par}=${Edu}=${Emp}`)
 
 
  
