@@ -43,22 +43,22 @@ def home():
     return render_template("index.html")
 
 # Route to the project page template
-@app.route("/project")
+@app.route("/project.html")
 def project():
     return render_template("project.html")
 
 # Route to the questions page template
-@app.route("/questions")
+@app.route("/questions.html")
 def questions():
     return render_template("questions.html")
 
 # Route to the visualisations page template
-@app.route("/visualisations")
+@app.route("/visualisations.html")
 def visualisations():
     return render_template("Visualisations.html")
 
 # Route to the machine learning page template
-@app.route("/machinelearning")
+@app.route("/machinelearning.html")
 def machinelearning():
     return render_template("Machinelearning.html")
 
