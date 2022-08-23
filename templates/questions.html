@@ -7,16 +7,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="static/css/style.css">
-
 </head>
 
 <body>
 
   <!-- Header -->
   <header role="banner">
-    <nav class="navbar navbar-expand-lg navbar-custom" id=box1>
+    <nav class="navbar navbar-expand-lg navbar-custom" id="box1">
+      <a id="Machine" href="/">2020 US Mining Injury Data</a>
+
       <div class="container">
-        <a class="navbar-brand" id="Machine" href="/">Machine Learning</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
           aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -24,100 +25,96 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav pl-md-5">
-
             <li class="nav-item">
-              <a class="nav-link" id="otherfonts" href="Visualisations.html">Visualisations</a>
+              <a class="nav-link" id="otherfonts" href="project.html">Project Summary</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="otherfonts" href="questions.html">Injury Calculator</a>
+              <a class="nav-link" id="otherfonts" href="Visualisations.html">Key Data Visualisations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="otherfonts" href="questions.html">Injury Predictor</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  </header>
 
-  <div class="container-fluid"></div>
-  <style>
-    body {
 
-      background: url('static/images/backgroundtrucks.jpg') no-repeat center center fixed;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-  </style>
-  <form class="form-inline">
-    <div class="col-md-12 col-sm-12">
+    <div class="container-fluid"></div>
+    <style>
+      body {
 
-      <div class="row">
-        <div class="box_comp">
-          <h1> Mine Employee Questionare</h1>
+        background: url('static/images/backgroundtrucks.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+    <form class="form-inline">
+      <div class="col-md-12 col-sm-12">
 
-          <p class="text1">Employee Age Group</p>
-          <section>
-            <div class="row">
-              <div class="col-lg-6 d-flex justify-content-center text-center">
-                <select id="AgeGroup"></select>
+        <div class="row">
+          <div class="box_comp">
+            <h1> Mine Employee Questionare</h1>
+
+            <p class="text1">Employee Age Group</p>
+            <section>
+              <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center text-center">
+                  <select id="AgeGroup"></select>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <hr>
-          <p class="text1">Employee Gender</p>
-          <section>
-            <div class="row">
-              <div class="col-lg-6 d-flex justify-content-center text-center">
-                <select id="EmployeeGender" name="SelNumKids"></select>
+            <hr>
+            <p class="text1">Employee Gender</p>
+            <section>
+              <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center text-center">
+                  <select id="EmployeeGender" name="SelNumKids"></select>
+                </div>
               </div>
-            </div>
-          </section>
-          <hr>
+            </section>
+            <hr>
 
-          <p class="text1">Employee Occupation</p>
-          <section>
-            <div class="row">
-              <div class="col-lg-6 d-flex justify-content-center text-center">
-                <select id="Occupation"></select>
+            <p class="text1">Employee Occupation</p>
+            <section>
+              <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center text-center">
+                  <select id="Occupation"></select>
+                </div>
               </div>
-            </div>
-          </section>
-          <hr>
-          <p class="text1">Operational Process</p>
-          <section>
-            <div class="row">
-              <div class="col-lg-6 d-flex justify-content-center text-center">
-                <select id="OpProcess"></select>
+            </section>
+            <hr>
+            <p class="text1">Operational Process</p>
+            <section>
+              <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center text-center">
+                  <select id="OpProcess"></select>
+                </div>
               </div>
-            </div>
-          </section>
-          <hr>
-  </form>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+            </section>
+            <hr>
+    </form>
 
-  <div class="col text-center">
-    <p><a class="btn btn-info btn-lg" id="clicked" role="button">RESULTS</a></p>
-  </div>
+    <div class="col text-center">
+      <p><a class="btn btn-info btn-lg" id="clicked" role="button">RESULTS</a></p>
+    </div>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="../static/js/app.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../static/js/app.js"></script>
 
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <!-- D3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
 </body>
 
 </html>
