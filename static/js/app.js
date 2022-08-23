@@ -1,186 +1,287 @@
-function init() {
-    // Select the frop down menu from the html file
-    var dropDownMenu = d3.select("#selDataset")
-    d3.json("/api/v1.0/company_details").then(data => {
 
-        var IDName = data[0].mine_id;
-        data.forEach(d => dropDownMenu
-            .append('option')
-            .text(d.mine_id)
-            .property('value', d.mine_id))
+//Age Group 
 
-    });
+var ageGroup = ["Under 20", "20 - 29", "30 - 39", "40 - 49","50 - 59","60 - 69", "70 - 79", "80 - 89"]
+
+// Populate dropbox with Age Ranges
+ageGroup.forEach((par) => {
+   var DDpar = d3.select("#AgeGroup");
+   var newoption = DDpar.append("option");
+   newoption.attr("value", par);
+   newoption.text(par);
+   Par = DDpar.node().value;
+}); 
+
+// Persons Gender 
+
+var gender = ["Male", "Female"]
+
+// Populate dropbox with Gender
+gender.forEach((num) => {
+   var DDkids = d3.select("#EmployeeGender");
+   var newoption = DDkids.append("option");
+   newoption.attr("value", num);
+   newoption.text(num);
+   NumofKids = DDkids.node().value;
+}); 
+
+
+
+// Employee Occupation 
+
+var occupation = ["Apprentice/Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant "]
+
+// Populate dropbox with Occupation 
+occupation.forEach((edu) => {
+   var DDedu = d3.select("#Occupation");
+   var newoption = DDedu.append("option");
+   newoption.attr("value", edu);
+   newoption.text(edu);
+   Edu = DDedu.node().value;
+}); 
+
+
+
+
+//level of employment before first kids
+
+var prekidEmp = ["unemployed", "Casual", "Part-time", "Full-time"]
+
+// Populate dropbox with level of employment 
+prekidEmp.forEach((emp) => {
+   var DDemp = d3.select("#empLevel");
+   var newoption = DDemp.append("option");
+   newoption.attr("value", emp);
+   newoption.text(emp);
+   Emp = DDemp.node().value;
+}); 
+
+
+function optionChanged() {
+  
+
+  // Age 
+var age_input = d3.select("input")
+var age = age_input.property('value');
+
+
+// Number of kids 
+var DDkids = d3.select("#selNumKids");
+
+NumofKids = DDkids.node().value;
+
+console.log(age, NumofKids); 
+
+
+// level of education
+
+var DDedu = d3.select("#education");
+Edu = DDedu.node().value;
+
+switch (Edu){
+    case "none":
+      none = 1,
+      High_School = 0,
+      Uni = 0,
+      Masters = 0
+    
+      break; 
+
+    case "High School diploma": 
+    none = 0,
+    High_School = 1,
+    Uni = 0,
+    Masters = 0
+  
+    break; 
+
+    case "Tertiary education": 
+    none = 0,
+    High_School = 0,
+    Uni = 1,
+    Masters = 0
+  
+    break; 
+
+    case "Master's or Doctorate": 
+    none = 0,
+    High_School = 0,
+    Uni = 0,
+    Masters = 1
+  
+    break; 
+
+  }
+
+  console.log(Edu); 
+  console.log(High_School, Masters, none, Uni)
+
+
+
+  //level of employment before first kids
+  var DDemp = d3.select("#empLevel");
+  Emp = DDemp.node().value;
+
+    switch (Emp){
+    case "unemployed":
+      unemployed = 1,
+      casual = 0,
+      part_time = 0,
+      full_time = 0
+    
+      break; 
+
+    case "Casual": 
+    unemployed = 0,
+    casual = 1,
+    part_time = 0,
+    full_time = 0
+  
+    break; 
+
+    case "Part-time": 
+    unemployed = 0,
+    casual = 0,
+    part_time = 1,
+    full_time = 0
+  
+    break; 
+
+    case "Full-time": 
+    unemployed = 0,
+    casual = 0,
+    part_time = 0,
+    full_time = 1
+  
+    break; 
+  }
+
+  console.log(Emp); 
+  console.log(unemployed, casual, part_time, full_time)
+
+  // partnered
+  var DDpar = d3.select("#partner");
+  Par = DDpar.node().value;
+
+    switch (Par){
+    case "Single":
+      Single = 1,
+      Partnered = 0
+    
+      break; 
+
+    case "Partnered": 
+    Single = 1,
+    Partnered = 0
+  
+    break; 
+   }
+
+   console.log(Par); 
+   console.log(Single, Partnered)
+
+
+   // mat leave eligability
+   var DDmat = d3.select("#matleave");
+   Mat = DDmat.node().value;
+
+
+     switch (Mat){
+    case "None":
+      None = 1,
+      Yes_paying = 0,
+      Yes_unpaid = 0
+    
+      break; 
+
+    case "Yes - and we are paying!": 
+    None = 0,
+    Yes_paying = 1,
+    Yes_unpaid = 0
+  
+    break; 
+
+    case "Yes - but unpaid": 
+    None = 0,
+    Yes_paying = 0,
+    Yes_unpaid = 1
+  
+    break; 
+   }
+
+   console.log(Mat); 
+   console.log(None, Yes_paying, Yes_unpaid)
+
+   // css eligability
+
+   var DDcss = d3.select("#cssElig");
+   Css = DDcss.node().value;
+
+  switch (Css){
+    case "Yes":
+      Yes = 1,
+      No = 0
+    
+      break; 
+
+    case "No": 
+    Yes = 0,
+    No = 1
+  
+    break; 
+
+   }
+
+   console.log(Css); 
+   console.log(Yes, No)
+   //help 
+
+    var DDhel = d3.select("#help");
+    Help = DDhel.node().value;
+
+   switch (Help){
+    case "Yes-Scheduled":
+      Yes = 1,
+      No = 0
+    
+      break; 
+
+    case "Yes - As needed": 
+    Yes = 0,
+    No = 1
+  
+    break; 
+
+    case "No": 
+    Yes = 0,
+    No = 1
+  
+    break; 
+
+}; 
+
+
+console.log(Help); 
+console.log(Yes, No)
+
+
+var results = ( `${age}=${NumofKids}=${Edu}=${Emp}=${Par}=${Mat}=${Css}=${Help}`)
+
+
+ 
+console.log(results)
+
+
+d3.select("#clicked").attr("href", `answers=${results}`).html;
+// Css = DDcss.node().value;
+
+console.log(text)
+ 
+
 };
-
-// Refresh the Mine information for each operator as you select it
-function DemographicInfo(id) {
-    var panel = d3.select("#sample-metadata");
-    panel.html("");
-    d3.json("/api/v1.0/company_details").then(data => {
-        var demInfo = data;
-        demInfo = demInfo.filter(row => row.mine_id == id);
-        Object.entries(demInfo[0]).forEach(([key, value]) => {
-            panel.append("h5").text(`${key.toUpperCase()}: ${value}`);
-        });
-    });
-}
-init();
-
-// Get Data for the "Injuries by Body Part and Nature Pie Charts" 
-function buildPie(id) {
-    d3.json("/api/v1.0/injury_details").then(data => {
-        var bodypart = {};
-        var graphInfo = data;
-        graphInfo = graphInfo.filter(row => row.mine_id == id);
-        graphInfo.forEach(i => {
-            if (i.injury_body_part in bodypart) { bodypart[i.injury_body_part] += 1; }
-            else { bodypart[i.injury_body_part] = 1; }
-        });
-
-        d3.json("/api/v1.0/injury_details").then(data => {
-            var nature = {};
-            var graphInfo = data;
-            graphInfo = graphInfo.filter(row => row.mine_id == id);
-            graphInfo.forEach(i => {
-                if (i.injury_nature in nature) { nature[i.injury_nature] += 1; }
-                else { nature[i.injury_nature] = 1; }
-            });
-
-            console.log(nature)
-            // Plot the "Injuries by Body Part and Nature Pie Charts"
-            var data = [{
-                values: Object.values(bodypart),
-                labels: Object.keys(bodypart),
-                domain: { column: 0 },
-                name: 'Injuries by Body Part',
-                hoverinfo: 'label+percent',
-                hole: .4,
-                type: 'pie'
-            }, {
-                values: Object.values(nature),
-                labels: Object.keys(nature),
-                text: '',
-                textposition: 'inside',
-                domain: { column: 1 },
-                name: 'Injuries by Nature',
-                hoverinfo: 'label+percent',
-                hole: .4,
-                type: 'pie'
-            }];
+ 
 
 
-            var layout = {
-                annotations: [
-                    {
-                        font: {
-                            size: 10
-                        },
-                        showarrow: true,
-                        text: "Note: Epic Pie Charts",
-                        x: 0.16,
-                        y: 0.86
-                    },
-                ],
-                height: 350,
-                width: 540,
-                margin: {
-                    l: 0,
-                    r: 0,
-                    b: 0,
-                    t: 0,
-                    pad: 4
-                },
-                showlegend: false,
-                grid: { rows: 1, columns: 2 }
-            };
+var button= d3.select("#clicked");
 
-            Plotly.newPlot('pie', data, layout);
-
-        }
-        )
-    }
-    )
-};
-
-// Get Data for the "Mine Incident Types"
-function BuildHoriBar(id) {
-    d3.json("/api/v1.0/incident_details").then(data => {
-        var labellist = {};
-        var graphInfo1 = data;
-        graphInfo1 = graphInfo1.filter(row => row.mine_id == id);
-        graphInfo1.forEach(i => {
-            if (i.incident_category in labellist) { labellist[i.incident_category] += 1; }
-            else { labellist[i.incident_category] = 1; }
-        });
-
-        // Plot the "Mine Incident Types"
-        var traceBar = {
-            x: Object.keys(labellist),
-            y: Object.values(labellist),
-            type: "bar",
-            marker: { color: 'gold', opacity: 0.6 }
-        };
-
-        var dataBar = [traceBar];
-        var layout = {
-            autosize: false,
-            width: 550,
-            height: 370,
-            margin: {
-            t: 0,
-            pad: 1
-            },
-        };
-        Plotly.newPlot("hbar", dataBar, layout);
-    });
-}
-
-// Get Data for the "Line Graph by Month"
-function line(id) {
-    d3.json("/api/v1.0/incident_details").then(data => {
-        var labellist2 = {};
-        var line = data;
-        line = line.filter(row => row.mine_id == id);
-        line.forEach(i => {
-            if (i.incident_month in labellist2) { labellist2[i.incident_month] += 1; }
-            else { labellist2[i.incident_month] = 1; }
-        });
-        console.log(Object.keys(labellist2))
-        console.log(Object.values(labellist2))
-
-        var linekey = Object.keys(labellist2)
-        var linevalue = Object.values(labellist2)
-
-        // Plot the "Line Graph by Month"
-        let chart = new frappe.Chart("#line", { // or DOM element
-            data: {
-                labels: linekey,
-                datasets: [
-                    {
-                        values: linevalue
-                    }
-                ],
-            },
-            type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
-            height: 350,
-            colors: ['yellow'],
-
-            lineOptions: {
-                dotSize: 12 // default: 4
-            },
-            tooltipOptions: {
-                formatTooltipX: d => (d + ''),
-                formatTooltipY: d => d + ' incidents',
-            }
-        });
-    }
-    )
-};
-
-
-function optionChanged(id) {
-    DemographicInfo(id);
-    BuildHoriBar(id);
-    line(id);
-    buildPie(id);
-};
+button.on("click", optionChanged); 
