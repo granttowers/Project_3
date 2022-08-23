@@ -1,11 +1,10 @@
+from flask import Flask, render_template, redirect, jsonify, request
+import pandas as pd 
 import os
-from xml.dom.expatbuilder import ElementInfo
-from flask import (
-    Flask,
-    render_template,
-    jsonify,
-    request,
-    redirect)
+import pickle 
+import sys
+import numpy as np
+from sklearn.linear_model import LogisticRegression
 
 #################################################
 # Database Setup
@@ -33,500 +32,444 @@ from flask import (
 #################################################
 app = Flask(__name__)
 
-# #################################################
-# # Flask Routes
-# #################################################
+###################################################
+# Flask Routes
+###################################################
 
 
+# Route to render the home page template
 @app.route("/")
-def welcome():
+def home():
     return render_template("index.html")
-    """List all available api routes."""
-    # return (
-    #     f"Available Routes:<br/>"
-    #     f"-------------------------------<br/>"
-    #     f"/api/v1.0/incident_details<br/>"
-    #     f"/api/v1.0/injury_details</br>"
-    #     f"/api/v1.0/company_details"
-    # )
 
-# @app.route("/api/v1.0/incident_details")
-# def names():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-
-#     """Return a list of all incident details"""
-
-#     # Query all incident details
-#     results = session.query(incident_details.mine_id, incident_details.incident_activity, incident_details.incident_category,
-#                             incident_details.incident_day, incident_details.incident_month, incident_details.incident_type, incident_details.incident_year).all()
-
-#     session.close()
-
-#     # Create a dictionary from the row data and append to a list of all incidents
-#     incident_test = []
-
-#     for mine_id, incident_activity, incident_category, incident_day, incident_month, incident_type, incident_year in results:
-
-#         incident_test_dict = {}
-
-#         incident_test_dict["mine_id"] = mine_id
-#         incident_test_dict["incident_activity"] = incident_activity
-#         incident_test_dict["incident_category"] = incident_category
-#         incident_test_dict["incident_day"] = incident_day
-#         incident_test_dict["incident_month"] = incident_month
-#         incident_test_dict["incident_type"] = incident_type
-#         incident_test_dict["incident_year"] = incident_year
-
-#         incident_test.append(incident_test_dict)
-
-#     return jsonify(incident_test)
-
-# Create
+# Route to the project page template
+@app.route("/project")
+def project():
+    return render_template("project.html")
 
 
-@app.route("/incident_prediction")
-def Results(Sex, Age, Occupation, Operational Process):
+# Route to the questions page template
+@app.route("/entry_questionnaire")
+def questions():
+    return render_template("questions.html")
 
-    # Binary values for Sex
-    if Sex == 'Female':
+# Route to the incident prediction page template
+@app.route("/incident_prediction=<sex>=<age>=<occupation>=<operational_process>")
+def incident_prediction(sex, age, occupation, operational_process):
+
+# Binary values for Sex
+    if sex == 'Female':
         Sex_Female = 1
         Sex_Male = 0
 
     # Binary values for Age
-    if Age == 'Age_<20':
-        Age_<20 = 1
-        Age_20 - 29 = 0
-        Age_30 - 39 = 0
-        Age_40 - 49 = 0 
-        Age_50 - 59 = 0
-        Age_60 - 69 = 0
-        Age_70 - 79 = 0
-        Age_80 - 89 = 0
+    if age == 'Age_Under_20':
+        Age_Under_20 = 1
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 0 
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_20 - 29':
-        'Age_<20' = 0
-        'Age_20 - 29' = 1
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 0
+    elif age == 'Age_20_29':
+        Age_Under_20 = 0
+        Age_20_29 = 1
+        Age_30_39 = 0
+        Age_40_49 = 0 
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_30 - 39':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 1
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 0      
-        
-    elif Age == 'Age_40 - 49':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 1
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 0           
+    elif age == 'Age_30_39':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 1
+        Age_40_49 = 0 
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_50 - 59':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 1
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 0
+    elif age == 'Age_40_49':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 1 
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_60 - 69':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 1
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 0
+    elif age == 'Age_50_59':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 0
+        Age_50_59 = 1
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_70 - 79':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 1
-        'Age_80 - 89' = 0
+    elif age == 'Age_60_69':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 0
+        Age_50_59 = 0
+        Age_60_69 = 1
+        Age_70_79 = 0
+        Age_80_89 = 0
 
-    elif Age == 'Age_80 - 89':
-        'Age_<20' = 0
-        'Age_20 - 29' = 0
-        'Age_30 - 39 '= 0
-        'Age_40 - 49' = 0 
-        'Age_50 - 59' = 0
-        'Age_60 - 69' = 0
-        'Age_70 - 79' = 0
-        'Age_80 - 89' = 1
+    elif age == 'Age_70_79':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 0
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 1
+        Age_80_89 = 0
+
+    elif age == 'Age_80_89':
+        Age_Under_20 = 0
+        Age_20_29 = 0
+        Age_30_39 = 0
+        Age_40_49 = 0
+        Age_50_59 = 0
+        Age_60_69 = 0
+        Age_70_79 = 0
+        Age_80_89 = 1
 
     # Binary values for Occupation
-    if Occupation == 'Occupation_Apprentice or Trainee Roles':
-        'Occupation_Apprentice or Trainee Roles' = 1
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0	
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
+    if occupation == 'Occupation_Apprentice_or_Trainee_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 1
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles	= 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Driller_and_Support_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 1
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Explosives_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 1
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles	= 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Fixed_Plant_Operator_and_Support_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 1
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles	= 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Labourer_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 1
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Maritime_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 1
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Mine_Supervisory_and_Management_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 1
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Mobile_Plant_Operator_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 1
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Other_Role':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 1
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles	= 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Technical_Services_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 1
+        Occupation_Trades_Roles	= 0
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Trades_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 1
+        Occupation_Underground_Miner_and_Support_Roles = 0
+
+    elif age == 'Occupation_Underground_Miner_and_Support_Roles':
+        Occupation_Apprentice_or_Trainee_Roles = 0
+        Occupation_Driller_and_Support_Roles = 0
+        Occupation_Explosives_Roles = 0
+        Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
+        Occupation_Labourer_Roles = 0
+        Occupation_Maritime_Roles = 0
+        Occupation_Mine_Supervisory_and_Management_Roles = 0
+        Occupation_Mobile_Plant_Operator_Roles = 0
+        Occupation_Other_Role = 0
+        Occupation_Technical_Services_Roles = 0
+        Occupation_Trades_Roles = 0
+        Occupation_Underground_Miner_and_Support_Roles = 1
+
+# Binary values for Operational Process
+    if operational_process == 'Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 1
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
+
+    elif operational_process == 'Operational_Process_Culm_Banks_Activities_Coal_Mining_Only':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 1
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
+
+    elif operational_process == 'Operational_Process_Dredging_Activities':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 1
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
+
+    elif operational_process == 'Operational_Process_Non_Mine_Workshops_and_Yards':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 1
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
+
+    elif operational_process == 'Operational_Process_Office_Located_on_Mine':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 1
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
+
+    elif operational_process == 'Operational_Process_Other_Surface_Facility':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 1
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
         
-    elif Occupation == 'Occupation_Driller and Support Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 1
-        'Occupation_Explosives Roles' = 0	
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
+    elif operational_process == 'Operational_Process_Surface_Mining_Operations':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 1
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 0
 
-    elif Occupation == 'Occupation_Explosives Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 1
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
+    elif operational_process == 'Operational_Process_Underground_Mine_Surface_Workshops_and_Yards':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 1
+        Operational_Process_Underground_Mining_Operations = 0
 
-    elif Occupation == 'Occupation_Fixed Plant Operatorand Support Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 1
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Fixed Plant Operator and Support Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 1
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Labourer Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 1
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Maritime Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 1
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Mine Supervisory and Management Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 1
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Mobile Plant Operator Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 1
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Other Role':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 1
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 1
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Trades Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 1
-        'Occupation_Underground Miner and Support Roles' = 0
-
-    elif Occupation == 'Occupation_Underground Miner and Support Roles':
-        'Occupation_Apprentice or Trainee Roles' = 0
-        'Occupation_Driller and Support Roles' = 0
-        'Occupation_Explosives Roles' = 0
-        'Occupation_Fixed Plant Operator and Support Roles' = 0
-        'Occupation_Labourer Roles' = 0
-        'Occupation_Maritime Roles' = 0
-        'Occupation_Mine Supervisory and Management Roles' = 0
-        'Occupation_Mobile Plant Operator Roles' = 0
-        'Occupation_Other Role' = 0
-        'Occupation_Technical Services (Geology, Survey, Engineer, Lab. Tech, OHS etc.)' = 0
-        'Occupation_Trades Roles' = 0
-        'Occupation_Underground Miner and Support Roles' = 1
+    elif operational_process == 'Operational_Process_Underground_Mining_Operations':
+        Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
+        Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
+        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Non_Mine_Workshops_and_Yards = 0
+        Operational_Process_Office_Located_on_Mine = 0
+        Operational_Process_Other_Surface_Facility = 0
+        Operational_Process_Surface_Mining_Operations = 0
+        Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
+        Operational_Process_Underground_Mining_Operations = 1
 
 
+    # Import Machine Learning Models - Nature of Injury (NOI), Injured Body Part (IBP), Source of Injury (SOI) and Activity (ACT)
 
+    NOI_model = 'NOI_Model.h5'
+    NOI_loaded_model = pickle.load(open(NOI_model, 'rb'))
 
+    IBP_model = 'IBP_Model.h5'
+    IBP_loaded_model = pickle.load(open(IBP_model, 'rb'))
 
-    elif Edu == "High School diploma":
-        none = 0
-        High_School = 1
-        Uni = 0
-        Masters = 0
+    SOI_model = 'SOI_Model.h5'
+    SOI_loaded_model = pickle.load(open(SOI_model, 'rb'))
 
-    elif Edu == "Tertiary education":
-        none = 0
-        High_School = 0
-        Uni = 1
-        Masters = 0
+    ACT_model = 'ACT_Model.h5'
+    ACT_loaded_model = pickle.load(open(ACT_model, 'rb'))
 
-    elif Edu == "Master's or Doctorate":
-        none = 0
-        High_School = 0
-        Uni = 0
-        Masters = 1
+    # Full response table to collate the response values
+    response = [Sex_Male, Sex_Female, Age_Under_20, Age_20_29, Age_30_39, Age_40_49, Age_50_59, Age_60_69, Age_70_79, Age_80_89, Occupation_Apprentice_or_Trainee_Roles, Occupation_Driller_and_Support_Roles, Occupation_Explosives_Roles, Occupation_Fixed_Plant_Operator_and_Support_Roles, Occupation_Labourer_Roles, Occupation_Maritime_Roles, Occupation_Mine_Supervisory_and_Management_Roles, Occupation_Mobile_Plant_Operator_Roles, Occupation_Other_Role, Occupation_Technical_Services_Roles, Occupation_Trades_Roles, Occupation_Underground_Miner_and_Support_Roles, Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations]
 
-    # binary of employment status before first baby
+    # Clear the results list
+    results_list =[]
 
-    if Emp == "unemployed":
-        unemployed = 1
-        casual = 0
-        part_time = 0
-        full_time = 0
+    # Append the new response values to the results_list list
+    for item in response:
+        results_list.append(float(item))
 
-    elif Emp == "Casual":
-        unemployed = 0
-        casual = 1
-        part_time = 0
-        full_time = 0
+    new_value = np.array(results_list)
+    new_value = np.expand_dims(new_value, 0)
 
-    elif Emp == "Part-time":
-        unemployed = 0
-        casual = 0
-        part_time = 1
-        full_time = 0
+    # Use the new value to generate a predictions for each model to new variable
+    NOI_prediction = NOI_loaded_model.predict(new_value)
+    IBP_prediction = IBP_loaded_model.predict(new_value)
+    SOI_prediction = SOI_loaded_model.predict(new_value)
+    ACT_prediction = ACT_loaded_model.predict(new_value)
 
-    elif Emp == "Full-time":
-        unemployed = 0
-        casual = 0
-        part_time = 0
-        full_time = 1
+    # Variables to store the predictions
+    NOI_prediction
+    IBP_prediction
+    SOI_prediction
+    ACT_prediction
 
-    # partnerd binary
+    # # Unsure about this bit...
+    # return render_template("answers.html")
+    # f"Summary of Feedback Provided:<br>"
+    # f"Gender: {sex}<br>"
+    # f"Age: {age}<br>"
+    # f"Occupation: {occupation}<br>"
+    # f"Operational Process: {operational_process}<br>"
+    # f"<br>"
+    # # Added Section to test and verify the  selected values...
+    # f"Entered Gender: Female: {Sex_Female}, Male: {Sex_Male}<br/>"
+    # f"Entered Age: Under 20: {Age_Under_20}, 20-29: {Age_20_29}, 30-39: {Age_30_39}, 40-49: {Age_40_49}, 50-59: {Age_50_59}, 60-69: {Age_60_69}, 70-79: {Age_70_79}, 80-89: {Age_80_89}<br/>"
 
-    if Par == "Single":
-        Single = 1
-        Partnered = 0
+    # if NOI_prediction == "Yes" : 
+    #     Content = "Yes!! Your hard working employee will return."
+    # elif NOI_prediction =="No": 
+    #     Content = "No! Sorry. Have you considered birthday day off? "
+    # else: 
+    #     Content = "Sorry, I don't know, I'm a good model - not a great model."
 
-    elif Par == "Partnered":
-        Single = 1
-        Partnered = 0
-
-    # maternity eligabiluty binary
-
-    if Mat == "None":
-        none_1 = 1
-        Yes_paying = 0
-        Yes_unpaid = 0
-
-    elif Mat == "Yes - and we are paying!":
-        none_1 = 0
-        Yes_paying = 1
-        Yes_unpaid = 0
-
-    elif Mat == "Yes - but unpaid":
-        none_1 = 0
-        Yes_paying = 0
-        Yes_unpaid = 1
-
-    # Css eligability binary
-
-    if Css == "Yes":
-        css_Yes = 1
-        css_No = 0
-
-    elif Css == "No":
-        css_Yes = 0
-        css_No = 1
-
-    # Help binary
-    if Help == "No":
-        Hel_Yes_sc = 0
-        Hel_Yes_need = 0
-        Help_no = 1
-
-    elif Help == "Yes-Scheduled":
-        Hel_Yes_sc = 1
-        Hel_Yes_need = 0
-        Help_no = 0
-
-    elif Help == "Yes- As needed":
-        Hel_Yes_sc = 0
-        Hel_Yes_need = 1
-        Help_no = 0
-
-
-User_Response_List = [sex, age, occupation, operational process]
-
-print(Help_no)
-
-
-# @app.route("/api/v1.0/injury_details")
-# def names2():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-
-#     """Return a list of all injury details"""
-
-#     # Query all injury details
-#     results = session.query(injury_details.mine_id, injury_details.injury_body_part, injury_details.injury_nature,
-#                             injury_details.injury_classification, injury_details.injury_days_lost).all()
-
-#     session.close()
-
-#     # Create a dictionary from the row data and append to a list of all injuries
-#     injury_details_test = []
-
-#     for mine_id, injury_body_part, injury_nature, injury_classification, injury_days_lost in results:
-
-#         injury_details_dict = {}
-
-#         injury_details_dict["mine_id"] = mine_id
-#         injury_details_dict["injury_body_part"] = injury_body_part
-#         injury_details_dict["injury_nature"] = injury_nature
-#         injury_details_dict["injury_classification"] = injury_classification
-#         injury_details_dict["injury_days_lost"] = injury_days_lost
-
-#         injury_details_test.append(injury_details_dict)
-
-#     return jsonify(injury_details_test)
-
-
-# @app.route("/api/v1.0/company_details")
-# def names3():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-
-#     """Return a list of all company details"""
-
-#     # Query all company details
-#     results = session.query(company_details.mine_id, company_details.company_mine_type, company_details.company_name, company_details.company_address,
-#                             company_details.company_city, company_details.company_injury_count, company_details.company_underground_surface).all()
-
-#     session.close()
-
-#     # Create a dictionary from the row data and append to a list of all companies
-#     company_details_test = []
-
-#     for mine_id, company_mine_type, company_name, company_address, company_city, company_injury_count, company_underground_surface in results:
-
-#         company_details_dict = {}
-
-#         company_details_dict["mine_id"] = mine_id
-#         company_details_dict["company_mine_type"] = company_mine_type
-#         company_details_dict["company_name"] = company_name
-#         company_details_dict["company_address"] = company_address
-#         company_details_dict["company_city"] = company_city
-#         company_details_dict["company_injury_count"] = company_injury_count
-#         company_details_dict["company_underground_surface"] = company_underground_surface
-
-#         company_details_test.append(company_details_dict)
-
-#     return jsonify(company_details_test)
-
-
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(debug=True)

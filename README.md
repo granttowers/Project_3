@@ -42,7 +42,10 @@ Data Migration (ETL):
 Initial Visualisations:
 - Connect the 'clean' (revised) incident data output to Tableau Public to create visualisation (to be completed).
 - Save these visualisations to the repo (as attachment) and so that we can use them in our Website (to be completed).
-- Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by Occupation' (our 3 key values) (to be completed). 
+- Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by Occupation' (our 3 key values) (completed). 
+- https://public.tableau.com/views/Visualization1_16612206646350/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+- https://public.tableau.com/views/Visualization2_16612209620380/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link
+- https://public.tableau.com/views/Visualization3_16612217672790/Visualization3?:language=en-US&:display_count=n&:origin=viz_share_link
 
 Machine Learning:
 - Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).
