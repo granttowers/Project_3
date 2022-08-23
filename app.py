@@ -396,16 +396,16 @@ def answers(sex, age, occupation, operational_process):
 
 
     # Import Machine Learning Models - Nature of Injury (NOI), Injured Body Part (IBP), Source of Injury (SOI) and Activity (ACT)
-    NOI_model = '/Working Documents/NOI_rf.pickle'
+    NOI_model = 'NOI_rf.pickle'
     NOI_loaded_model = pickle.load(open(NOI_model, 'rb'))
 
-    IBP_model = '/Working Documents/IBP_rf.pickle'
+    IBP_model = 'IBP_rf.pickle'
     IBP_loaded_model = pickle.load(open(IBP_model, 'rb'))
 
-    SOI_model = '/Working Documents/SOI_rf.pickle'
+    SOI_model = 'SOI_rf.pickle'
     SOI_loaded_model = pickle.load(open(SOI_model, 'rb'))
 
-    ACT_model = '/Working Documents/ACT_rf.pickle'
+    ACT_model = 'ACT_rf.pickle'
     ACT_loaded_model = pickle.load(open(ACT_model, 'rb'))
 
     # Full response table to collate the response values
