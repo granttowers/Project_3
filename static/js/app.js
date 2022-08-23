@@ -12,7 +12,6 @@ ages.forEach((person1) => {
   Age_Group = dd_age.node().value;
 });
 
-
 // Persons Gender 
 var gender = ["Male", "Female"]
 
@@ -25,7 +24,6 @@ gender.forEach((person2) => {
   Gender_Group = dd_gender.node().value;
 });
 
-
 // Employee Occupation 
 var occupation = ["Apprentice or Trainee", "Driller and Support Roles", "Explosives Roles", "Fixed Plant Operator and Support Roles", "Labourer Roles", "Maritime Roles", "Supervisory and Management Roles", "Mobile Plant Operators", "Other Roles", "Technical Services", "Trade Roles", "Underground Mine and Support"]
 
@@ -37,7 +35,6 @@ occupation.forEach((person3) => {
   newoption.text(person3);
   Occupation_Group = dd_occupation.node().value;
 });
-
 
 // Operational Process 
 var operationalprocess = ["Crushing or Processing", "Coal Mining Culm Banks Activities", "Dredging Acvitites", "Non Mine Workshops and Yards", "Office Activites", "Other Surface Facility", "Surface Mining Operations", "Underground Workshops and Yards", "Underground Mining Operations"]
@@ -479,7 +476,7 @@ function optionChanged() {
   console.log(Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations)
 
 
-  // Create text string to create website address, including selected variable options 
+  // Create text string to create website address, including selected variable options
   var results = (`${Gender_Group}=${Age_Group}=${Occupation_Group}=${OperationalProcess_Group}`)
   console.log(results)
 
