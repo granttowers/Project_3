@@ -53,35 +53,82 @@
     <div class="box_comp2">
       <h1 id="otherfonts"> US Mining Injury Data</h1>
 
-      <p> What can 4,836 incidents reported to the US Mining Regulator Teach Us?</p>
+      <p> What can 4,836 incidents reported to the US Mining Regulator Teach Us?</p><br><br>
 
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
       </div>
 
-      <h1 id="otherfonts">Project Intent </h1>
+      <h1 id="otherfonts">Project Intent and Purpose </h1>
 
-      <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book  </p>
+      <p>We want to develop a series of visualisations depicting elements of the incident data within the US, then
+        create a number of Machine Learning models to allow us to predict (hopefully with some certaintly...) a number
+        of future scenario's, based on the overall incident data.
+
+        The Models will all use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column data which will be
+        grouped (into smaller number of values to simplify the data model). The website will require require the end
+        user to select a value for their future, incoming role, then the site will predict:
+
+        1. The 'Activity' the person will most likely be injured doing.
+        2. The 'Body Part Injured' of the person that will be injured.
+        3. The 'Nature of Injury' that will be incurred.
+        4. The 'Source of Injury' that will cause the injury.
+
+        These will all be shown to the visitor as fields on the Website.</p><br><br>
 
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
       </div>
 
-      <h1 id="otherfonts">Methodology </h1>
+      <h1 id="otherfonts">Project Technical Summary</h1>
 
-      <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-        unchanged. It was popularised i </p>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. </p>
-      <p> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-        aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+      <h3>1. Data Preparation:</h3><br>
+      <p>- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC Website</a><br>
+        - Complete Significant Data Cleanup and Grouping as required.
+        - Identify the 'target' data for our Machine Learning Models.
+        - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
 
-      <p>For code examples..... <a href="/Machinelearning.html">click here</a></p>
+      <h3>2. Database/Hosting:</h3><br>
+      <p>- Created the RDS Server to house the Postgress DB.
+        - Create the S3 Bucket to store the incident file.
+        - Upload the incident data file to the existing data into the S3 bucket.
+        - Create a Heroku Instance and connect to GitHub Repo.
+        - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
+
+      <h3>Data Migration (ETL):</h3><br>
+      <p>- Complete significant data transformation initial incident file.
+        - Push clean incident data into the Postgress DB.</p>
+
+      <h3>Initial Visualisations:</h3><br>
+      <p>- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.
+        - Save these visualisations to the repo, so that we can use them in our Website.
+        - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by
+        Occupation' (our 3 key values) (completed).
+        -
+        https://public.tableau.com/views/Visualization1_16612206646350/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+        -
+        https://public.tableau.com/views/Visualization2_16612209620380/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link
+        -
+        https://public.tableau.com/views/Visualization3_16612217672790/Visualization3?:language=en-US&:display_count=n&:origin=viz_share_link.
+        <br><br></p>
+
+      <h3>Machine Learning:</h3><br>
+      <p>- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to
+      predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).<br><br></p>
+
+      <h3>Flask App:</h3><br>
+      <p>- to be confirmed...<br><br></p>
+
+      <h3>HTML Pages</h3><br>
+      <p>- Build Home Page Details
+      - Append the Tableau Images, Create Text etc.
+      - What to do about predictive...?</p><br><br>
+
+      <h3>Presentation:</h3><br>
+      <p>- Basically a summary of the steps above... (to be completed)
+      - Use Same Template as last project?
+      </p><br><br>
+
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
       </div>
