@@ -63,16 +63,16 @@
 
       <p>We want to develop a series of visualisations depicting elements of the incident data within the US, then
         create a number of Machine Learning models to allow us to predict (hopefully with some certaintly...) a number
-        of future scenario's, based on the overall incident data.
+        of future scenario's, based on the overall incident data.<br><br>
 
         The Models will all use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column data which will be
         grouped (into smaller number of values to simplify the data model). The website will require require the end
-        user to select a value for their future, incoming role, then the site will predict:
+        user to select a value for their future, incoming role, then the site will predict:<br><br>
 
-        1. The 'Activity' the person will most likely be injured doing.
-        2. The 'Body Part Injured' of the person that will be injured.
-        3. The 'Nature of Injury' that will be incurred.
-        4. The 'Source of Injury' that will cause the injury.
+        1. The 'Activity' the person will most likely be injured doing.<br>
+        2. The 'Body Part Injured' of the person that will be injured.<br>
+        3. The 'Nature of Injury' that will be incurred.<br>
+        4. The 'Source of Injury' that will cause the injury.<br><br>
 
         These will all be shown to the visitor as fields on the Website.</p><br><br>
 
@@ -84,37 +84,36 @@
 
       <h3>1. Data Preparation:</h3><br>
       <p>- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC Website</a><br>
-        - Complete Significant Data Cleanup and Grouping as required.
-        - Identify the 'target' data for our Machine Learning Models.
+        - Complete Significant Data Cleanup and Grouping as required.<br>
+        - Identify the 'target' data for our Machine Learning Models.<br>
         - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
 
       <h3>2. Database/Hosting:</h3><br>
-      <p>- Created the RDS Server to house the Postgress DB.
-        - Create the S3 Bucket to store the incident file.
-        - Upload the incident data file to the existing data into the S3 bucket.
-        - Create a Heroku Instance and connect to GitHub Repo.
+      <p>- Created the RDS Server to house the Postgress DB.<br>
+        - Create the S3 Bucket to store the incident file.<br>
+        - Upload the incident data file to the existing data into the S3 bucket.<br>
+        - Create a Heroku Instance and connect to GitHub Repo.<br>
         - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
 
       <h3>Data Migration (ETL):</h3><br>
-      <p>- Complete significant data transformation initial incident file.
-        - Push clean incident data into the Postgress DB.</p>
+      <p>- Complete significant data transformation initial incident file.<br>
+        - Push clean incident data into the Postgress DB.</p><br><br>
 
       <h3>Initial Visualisations:</h3><br>
-      <p>- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.
-        - Save these visualisations to the repo, so that we can use them in our Website.
-        - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by
-        Occupation' (our 3 key values) (completed).
+      <p>- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.<br>
+        - Save these visualisations to the repo, so that we can use them in our Website.<br>
+        - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary by<br>
+        Occupation' (our 3 key values)<br>.
         -
-        https://public.tableau.com/views/Visualization1_16612206646350/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+        https://public.tableau.com/views/Visualization1_16612206646350/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link<br>
         -
-        https://public.tableau.com/views/Visualization2_16612209620380/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link
+        https://public.tableau.com/views/Visualization2_16612209620380/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link<br>
         -
         https://public.tableau.com/views/Visualization3_16612217672790/Visualization3?:language=en-US&:display_count=n&:origin=viz_share_link.
         <br><br></p>
 
       <h3>Machine Learning:</h3><br>
-      <p>- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to
-      predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).<br><br></p>
+      <p>- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).<br><br></p>
 
       <h3>Flask App:</h3><br>
       <p>- to be confirmed...<br><br></p>
