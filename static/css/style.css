@@ -113,6 +113,26 @@ td {
   text-align: center;
 }
 
+#welcomefonts2 {
+  font-style: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 1000;
+  font-size: 14;
+  color: rgb(255, 196, 0);
+  font-size: 14pt;
+  text-align: left;
+}
+
+#welcomefonts3 {
+  font-style: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 1000;
+  font-size: 14;
+  color: rgb(255, 196, 0);
+  font-size: 14pt;
+  text-align: center;
+}
+
 .answerbox {
   height: 700px;
   /* width: 1500px; */
@@ -132,7 +152,7 @@ td {
 }
 
 .welcomebox {
-  height: 400px;
+  height: 500px;
   /* width: 1500px; */
   padding: 50px;
   margin-bottom: 100px;
