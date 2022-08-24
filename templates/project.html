@@ -59,14 +59,14 @@
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
       </div>
 
-      <h1 id="otherfonts">Project Intent and Purpose </h1>
+      <h1 id="otherfontsproject">Project Intent and Purpose </h1>
 
       <p id="otherpara2fonts">We want to develop a series of visualisations depicting elements of the incident data
         within the US, then
         create a number of Machine Learning models to allow us to predict (hopefully with some certaintly...) a number
         of future scenario's, based on the overall incident data.<br><br>
 
-      <p id="otherpara3fonts">The Models will all use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column
+      <p id="otherpara2fonts">The Models will all use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column
         data which will be
         grouped (into smaller number of values to simplify the data model). The website will require require the end
         user to select a value for their future, incoming role, then the site will predict:<br><br>
@@ -85,24 +85,24 @@
       <h1 id="otherfonts">Project Technical Summary</h1>
 
       <h3>1. Data Preparation:</h3><br>
-      <p>- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC Website</a><br>
+      <p id="otherpara2fonts">- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC Website</a><br>
         - Complete Significant Data Cleanup and Grouping as required.<br>
         - Identify the 'target' data for our Machine Learning Models.<br>
         - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
 
       <h3>2. Database/Hosting:</h3><br>
-      <p>- Created the RDS Server to house the Postgress DB.<br>
+      <p id="otherpara2fonts">- Created the RDS Server to house the Postgress DB.<br>
         - Create the S3 Bucket to store the incident file.<br>
         - Upload the incident data file to the existing data into the S3 bucket.<br>
         - Create a Heroku Instance and connect to GitHub Repo.<br>
         - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
 
       <h3>Data Migration (ETL):</h3><br>
-      <p>- Complete significant data transformation initial incident file.<br>
+      <p id="otherpara2fonts">- Complete significant data transformation initial incident file.<br>
         - Push clean incident data into the Postgress DB.</p><br><br>
 
       <h3>Initial Visualisations:</h3><br>
-      <p>- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.<br>
+      <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.<br>
         - Save these visualisations to the repo, so that we can use them in our Website.<br>
         - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary
         by<br>
@@ -117,19 +117,19 @@
       </p>
 
       <h3>Machine Learning:</h3><br>
-      <p>- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to
+      <p id="otherpara2fonts">- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to
         predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).<br><br></p>
 
       <h3>Flask App:</h3><br>
-      <p>- to be confirmed...<br><br></p>
+      <p id="otherpara2fonts">- to be confirmed...<br><br></p>
 
       <h3>HTML Pages</h3><br>
-      <p>- Build Home Page Details
+      <p id="otherpara2fonts">- Build Home Page Details
         - Append the Tableau Images, Create Text etc.
         - What to do about predictive...?</p><br><br>
 
       <h3>Presentation:</h3><br>
-      <p>- Basically a summary of the steps above... (to be completed)
+      <p id="otherpara2fonts">- Basically a summary of the steps above... (to be completed)
         - Use Same Template as last project?
       </p><br><br>
 
@@ -139,11 +139,11 @@
 
       <h1 id="otherfonts">Observations from model </h1>
 
-      <p>quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-        nisi ut aliquid ex ea commodi consequatur?</p>
-      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
-        illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-      <p>t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+      <p id="otherpara2fonts">quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+        nisi ut aliquid ex ea commodi consequatur?<br><br>
+      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
+        illum qui dolorem eum fugiat quo voluptas nulla pariatur?"<br><br>
+      t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
         corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
@@ -151,11 +151,10 @@
 
       <h1 id="otherfonts">Limitations and Model Betterment </h1>
 
-      <p>More questions in survey</p>
-      <p>More respondants to a wider audience</p>
-      <p>More model refinement</p>
+      <p id="otherpara2fonts">More questions in survey<br>
+      More respondants to a wider audience<br>
+      More model refinement</p><br>
     </div>
-
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="static/js/app.js"></script>
