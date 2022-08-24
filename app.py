@@ -16,36 +16,26 @@ app = Flask(__name__)
 ###################################################
 
 # Route to render the home page template
-
-
 @app.route("/")
 def home():
     return render_template("index.html")
 
 # Route to the project page template
-
-
 @app.route("/project.html")
 def project():
     return render_template("project.html")
 
 # Route to the questions page template
-
-
 @app.route("/questions.html")
 def questions():
     return render_template("questions.html")
 
 # Route to the visualisations page template
-
-
 @app.route("/Visualisations.html")
 def visualisations():
     return render_template("Visualisations.html")
 
-# Route to the incident prediction page template
-
-
+# Route to the answer page template
 @app.route("/Answer=<sex>=<age>=<occupation>=<operational_process>")
 def answers(sex, age, occupation, operational_process):
 

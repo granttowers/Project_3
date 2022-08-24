@@ -69,9 +69,7 @@
 
         These will all be shown to the visitor as fields on the Website.<br><br></p>
 
-
       <h1 id="otherfontsproject">Project Technical Summary</h1>
-
       <h3 id="otherfontsproject2">1. Data Preparation:</h3>
       <p id="otherpara2fonts">- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC
           Website</a> and to download our complete (unedited) dataset <a
@@ -80,8 +78,6 @@
         - Identify the 'target' data for our Machine Learning Models.<br>
         - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
 
-
-
       <h3 id="otherfontsproject2">2. Database/Hosting:</h3>
       <p id="otherpara2fonts">- Created the RDS Server to house the Postgress DB.<br>
         - Create the S3 Bucket to store the incident file.<br>
@@ -89,13 +85,9 @@
         - Create a Heroku Instance and connect to GitHub Repo.<br>
         - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
 
-
-
       <h3 id="otherfontsproject2">3. Data Migration and ETL:</h3>
       <p id="otherpara2fonts">- Complete significant data transformation initial incident file.<br>
         - Push clean incident data into the Postgress DB.<br><br></p>
-
-
 
       <h3 id="otherfontsproject2">4. Initial Visualisations:</h3>
       <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required
@@ -110,10 +102,9 @@
         5. 'Total Injuries vs Days Lost'<br>
         6. 'The Most Injured Body Part'<br><br></p>
 
-
-
       <h3 id="otherfontsproject2">5. Machine Learning:</h3>
-      <p id="otherpara2fonts">The Machine Learning element of our project we wanted to focus on a predictive model in
+      <p id="otherpara2fonts">for the Machine Learning element of our project we wanted to focus on a predictive model
+        (Random Forrests) in
         which we could get a person to enter some basic personal details, then a model will be able to predict the most
         likely scenarios for injuries that they may incur during their work life.<br><br>
 
@@ -135,21 +126,31 @@
         3. 'Source of Injury' - Overall Model Accuracy: 13.9% (Possible Outcomes: 107 options)<br>
         4. 'Activity' - Overall Model Accuracy: 22.2% (Possible Outcomes: 82 options)<br><br>
 
-
         Overall we have 5,325 incident in our database. Once the models were trained and finalised, we exported the data
         models using the 'pickle' to separate files, so
         we could import the models into our flask app, to make the predictions to our submitted data.<br><br></p>
 
+      <h3 id="otherfontsproject2">6. app.py and app.js Functions:</h3>
+      <p id="otherpara2fonts">There is a sequential process which is occuring to make our data model function as
+        experienced, as follows:<br><br>
 
-
-
-      <h3 id="otherfontsproject2">6. Flask App Functions:</h3>
-      <p id="otherpara2fonts">- to be confirmed...<br><br></p>
-
-
+        1. 'app.py' renders all of the webiste templates - then we get to the 'questions.html' page.<br>
+        2. 'app.js' creates all of the drop down boxes and values, then once the user selects their data and clicks the
+        'Get my Predictions' button.<br>
+        3. Within the 'app.js file, there are mapped out options for all possible values, so that the app stores the
+        binary code for each option (based on the selection) and collates it.<br>
+        4. A concatenated text string is created and used to navigate to the 'Answer.html' page.<br>
+        5. During this process, the submitted information is reverted to 'app.py', reconverted to align with our data
+        model extract (which allows our machine learning to function).<br>
+        6. We now have a single text string (which aligns with the structure of our data model - for example
+        'rf.predict([[0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0]])'.<br>
+        6. Within 'app.py', we import the pickled files (containing the trained data model), and using the model, call
+        it to predict a value for our user submitted values against our models.<br>
+        7. We store the results in the return value to present them during the render_template process, which allows us
+        to call them and present them in 'Answer.html', which we can all see.<br><br></p>
 
       <h3 id="otherfontsproject2">7. HTML Pages:</h3>
-      <p id="otherpara2fonts">There are current 5 pages in our webpage:<br>
+      <p id="otherpara2fonts">There are currently 5 pages in our site:<br>
         - Our Home Page - <a href="https://grantnickproj3.herokuapp.com/">Link</a><br>
         - Project Summary (this page) - <a href="https://grantnickproj3.herokuapp.com/project.html">Link</a><br>
         - Key Data Visualisations - <a href="https://grantnickproj3.herokuapp.com/Visualisations.html">Link</a><br>
@@ -158,16 +159,11 @@
           href="https://grantnickproj3.herokuapp.com/Answer=Male=Under%2020=Apprentice%20or%20Trainee=Crushing%20or%20Processing">Example
           Link</a><br><br></p>
 
-
-
       <h3 id="otherfontsproject2">8. Presentation:</h3>
       <p id="otherpara2fonts">The last element of our project is our presentation. This can be found <a
           href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/Project+3.pptx">here...</a><br><br></p>
 
-
-          
       <h1 id="otherfontsproject">Observations, Limitations and Potential Enhancements to Model</h1>
-
       <h3 id="otherfontsproject2">Observations and Limitations:</h3>
       <p id="otherpara2fonts">
         What we set out to achieve (creating a predictive model based upon selected critieria) has been successful.
@@ -231,7 +227,6 @@
         </tr>
       </table><br>
 
-
       <p id="otherpara2fonts">For example below, using only age, if we were trying to predict an outcome, selecting the
         age group of '80 - 89'
         will only give the model 4 incidents to make a prediction.<br><br>
@@ -241,8 +236,6 @@
 
         Considering this, the prediction model can be easily manipulated if have small numbers of outlying data and
         needs to be considering accordingly.<br><br></p>
-
-
 
       <h3 id="otherfontsproject2">Potential Enhancements to Model:</h3>
       <p id="otherpara2fonts">
