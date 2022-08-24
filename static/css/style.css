@@ -5,13 +5,23 @@
   padding: 0px;} */
 
 
-table,
-th,
-td {
+table, th, td {
   border: 1px solid #000000;
+  padding: 10px;
   font-size: 12pt;
 }
 
+.InputEnteredTable, th, td {
+  border: 1px solid #000000;
+  padding: 10px;
+  font-size: 12pt;
+}
+
+.PredictionTable, th, td {
+  border: 1px solid #000000;
+  padding: 10px;
+  font-size: 12pt;
+}
 #box1 {
   color: rgb(255, 196, 0);
   height: 100px;
@@ -138,7 +148,7 @@ td {
   /* width: 1500px; */
   padding: 100px;
   margin-bottom: 200px;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-left: 200px;
   margin-right: 200px;
   color: rgb(255, 196, 0);
