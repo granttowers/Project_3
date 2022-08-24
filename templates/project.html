@@ -83,42 +83,60 @@
       <h1 id="otherfontsproject">Project Technical Summary</h1>
 
       <h3 id="otherfontsproject2">1. Data Preparation:</h3>
-      <p id="otherpara2fonts">- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC Website</a><br>
+      <p id="otherpara2fonts">- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC
+          Website</a><br>
         - Complete Significant Data Cleanup and Grouping as required.<br>
         - Identify the 'target' data for our Machine Learning Models.<br>
         - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
 
-        <h3 id="otherfontsproject2">2. Database/Hosting:</h3>
+      <h3 id="otherfontsproject2">2. Database/Hosting:</h3>
       <p id="otherpara2fonts">- Created the RDS Server to house the Postgress DB.<br>
         - Create the S3 Bucket to store the incident file.<br>
         - Upload the incident data file to the existing data into the S3 bucket.<br>
         - Create a Heroku Instance and connect to GitHub Repo.<br>
         - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
 
-        <h3 id="otherfontsproject2">3. Data Migration and ETL:</h3>
+      <h3 id="otherfontsproject2">3. Data Migration and ETL:</h3>
       <p id="otherpara2fonts">- Complete significant data transformation initial incident file.<br>
         - Push clean incident data into the Postgress DB.</p><br><br>
 
-        <h3 id="otherfontsproject2">4. Initial Visualisations:</h3>
-      <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required visualisations.<br>
-        - Save these visualisations to the repo, so that we can use them in our Website.<br>
-        - Key Indicators would include the 'Incident Counts by Age', 'Incident Ratio by Age' and 'Incident Summary
-        by<br>
-        Occupation' (our 3 key values)<br>.
-        -
-        https://public.tableau.com/views/Visualization1_16612206646350/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link<br>
-        -
-        https://public.tableau.com/views/Visualization2_16612209620380/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link<br>
-        -
-        https://public.tableau.com/views/Visualization3_16612217672790/Visualization3?:language=en-US&:display_count=n&:origin=viz_share_link.
-        <br><br>
-      </p>
+      <h3 id="otherfontsproject2">4. Initial Visualisations:</h3>
+      <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required
+        visualisations.<br>
+        - Save these visualisations to the repo.<br><br>
+
+        The Key Visualisations we selected includes:<br>
+        1. 'Injury Counts By Age Group'<br>
+        2. 'Worst Performing US Safety States'<br>
+        3. 'The Most Dangerous Resources'<br>
+        4. 'The Most Dangerous Occupations'<br>
+        5. 'Total Injuries vs Days Lost'<br>
+        6. 'The Most Injured Body Part'</p><br><br>
 
       <h3 id="otherfontsproject2">5. Machine Learning:</h3>
-      <p id="otherpara2fonts">- Using the 'Sex', 'Age', 'Occupation' and "Operational Process" column data, create the data models we want to
-        predict ('Activity', 'Body Part Injured', 'Nature of Injury' and 'Source of Injury') (Complete).<br><br></p>
+      <p id="otherpara2fonts">The Machine Learning element of our project we wanted to focus on a predictive model in
+        which we could get a person to enter some basic personal details, then a model will be able to predict the types
+        of injuries that they may incur during their work life.<br><br>
 
-        <h3 id="otherfontsproject2">6. Flask App:</h3>
+        In orer to do this, we selected the following columns:<br>
+        1. 'Sex' (Female/Male)<br>
+        2. 'Age' (Grouped by Decades)<br>
+        3. 'Occupation' (Grouped Data into General Occupation Types that we determined)<br>
+        4. 'Operational Process" (Grouped Data for the Workplace that we determined)<br><br>
+
+        The machine learning model will then use the related incident details selected to predict the outcome based on
+        the previous incident data.<br><br>
+
+        Overall, we did find variance between the 'accuracty' of the models, based on the number of output criteria the
+        model has to predict from.<br><br>
+
+        Our Models Predict the following:<br>
+        1. 'Nature of Injury' - Overall Model Accuracy: 30.0% (Possible Outcomes: 31 options)<br>
+        2. 'Injured Body Part' - Overall Model Accuracy: 24.9% (Possible Oucomes: 8 options)<br>
+        3. 'Source of Injury' - Overall Model Accuracy: 13.9% (Possible Outcomes: 107 options)<br>
+        4. 'Activity' - Overall Model Accuracy: 22.17% (Possible Outcomes: 82 options)<br>
+
+      <h3 id="otherfontsproject2">6. Flask App:</h3>
       <p id="otherpara2fonts">- to be confirmed...<br><br></p>
 
       <h3 id="otherfontsproject2">7. HTML Pages:</h3>
@@ -126,7 +144,7 @@
         - Append the Tableau Images, Create Text etc.
         - What to do about predictive...?</p><br><br>
 
-        <h3 id="otherfontsproject2">8. Presentation:</h3>
+      <h3 id="otherfontsproject2">8. Presentation:</h3>
       <p id="otherpara2fonts">- Basically a summary of the steps above... (to be completed)
         - Use Same Template as last project?
       </p><br><br>
@@ -136,11 +154,12 @@
       </div>
 
       <h1 id="otherfontsproject">Observations from Model </h1>
-      <p id="otherpara2fonts">quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+      <p id="otherpara2fonts">quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+        suscipit laboriosam,
         nisi ut aliquid ex ea commodi consequatur?<br><br>
-      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
+        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel
         illum qui dolorem eum fugiat quo voluptas nulla pariatur?"<br><br>
-      t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+        t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
         corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
@@ -149,9 +168,9 @@
       <h1 id="otherfontsproject">Overall Project Limitations and Potential Enhancements </h1>
       <p id="otherpara2fonts">There are a number of limitations.. to add.<br><br>
 
-      - More questions in survey<br>
-      - More respondants to a wider audience<br>
-      - More model refinement</p><br>
+        - More questions in survey<br>
+        - More respondants to a wider audience<br>
+        - More model refinement</p><br>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
