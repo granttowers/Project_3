@@ -163,14 +163,14 @@ td {
 }
 
 .answerbox {
-  height: 1500px;
+  height: 1200px;
   /* width: 1500px; */
   padding: 100px;
   margin-bottom: 200px;
   margin-top: 200px;
   margin-left: 200px;
   margin-right: 200px;
-  color: rgb(144, 226, 226);
+  color: rgb(255, 196, 0);
   background: #01415C;
   opacity: .7;
   outline-color: turquoise;
