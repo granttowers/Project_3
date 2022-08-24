@@ -138,8 +138,11 @@
         2. 'Injured Body Part' - Overall Model Accuracy: 24.9% (Possible Oucomes: 8 options)<br>
         3. 'Source of Injury' - Overall Model Accuracy: 13.9% (Possible Outcomes: 107 options)<br>
         4. 'Activity' - Overall Model Accuracy: 22.2% (Possible Outcomes: 82 options)<br><br>
-      
-        Once the models were trained and finalised, we exported the data models using the 'pickle' to separate files, so we could import the models into our flask app, to make the predictions to our submnitted data.<br><br></p>
+
+
+        Overall we have 5,325 incident in our database. Once the models were trained and finalised, we exported the data
+        models using the 'pickle' to separate files, so
+        we could import the models into our flask app, to make the predictions to our submitted data.<br><br></p>
 
 
 
@@ -173,18 +176,80 @@
 
       <h1 id="otherfontsproject">Observations, Limitations and Potential Enhancements to Model</h1>
 
-      <h3 id="otherfontsproject2">Observations:</h3>
-      <p id="otherpara2fonts">Add Text...</p><br><br>
-
-      <h3 id="otherfontsproject2">Limitations:</h3>
-      <p id="otherpara2fonts">Add Text...</p><br><br>
-
-      <h3 id="otherfontsproject2">Potential Enhancement:</h3>
+      <h3 id="otherfontsproject2">Observations and Limitations:</h3>
       <p id="otherpara2fonts">
-        - More questions in survey<br>
-        - More respondants to a wider audience<br>
-        - More model refinement</p><br><br>
+        What we set out to achieve (creating a predictive model based upon selected critieria) has been successful.
+        However, we both learned a critical limitation to the model that any person referring to this model needs to
+        understand.<br><br>
 
+        The model uses previously recorded incident data to make a prediction and although we have a large amount of
+        data, the more There were a number of areas that we feel could improve the model:<br>
+      </p><br><br>
+
+      <table>
+        <tr>
+          <th>Age Group</th>
+          <th>Number Incidents</th>
+          <th>% of Total</th>
+        </tr>
+        <tr>
+          <td>Less Than 20</td>
+          <td>56</td>
+          <td>1.1%</td>
+        </tr>
+        <tr>
+          <td>20 - 29</td>
+          <td>1,061</td>
+          <td>21.6%</td>
+        </tr>
+        <tr>
+          <td>30 - 39</td>
+          <td>1,275</td>
+          <td>26.0%</td>
+        </tr>
+        <tr>
+          <td>40 - 49</td>
+          <td>1,091</td>
+          <td>22.2%</td>
+        </tr>
+        <tr>
+          <td>50 - 59</td>
+          <td>951</td>
+          <td>19.4%</td>
+        </tr>
+        <tr>
+          <td>60 - 69</td>
+          <td>457</td>
+          <td>9.3%</td>
+        </tr>
+        <tr>
+          <td>70 - 79</td>
+          <td>13</td>
+          <td>0.3%</td>
+        </tr>
+        <tr>
+          <td>80 - 89</td>
+          <td>4</td>
+          <td>0.1%</td>
+        </tr>
+        <tr>
+          <td>Total Incidents</td>
+          <td>4,908</td>
+          <td></td>
+        </tr>
+      </table>
+
+
+      <h3 id="otherfontsproject2">Potential Enhancements to Model:</h3>
+      <p id="otherpara2fonts">
+        There were a number of areas that we feel could improve the model:<br>
+        - Add more models and/or amend the criteria for selection. We wanted it to be a logical assessment for a new
+        employee, but there could be other varaitions that we could have used, which may result in more accurate
+        predictions.<br>
+        - More model refinement - to group more of the options for the 'Source of Injury' and 'Activity' fields - as a
+        smaller number of options would likely improve the accuracy of the model.<br>
+        - Collate More Data - As this model is reliant on data, some of the more obscure occupations/operations end up
+        with less options, therefore the accuract of the model is reduced.</p><br><br>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
