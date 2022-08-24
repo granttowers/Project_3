@@ -5,6 +5,10 @@
   padding: 0px;} */
 
 
+ .table, th, td {
+    border: 1px solid black;
+ }
+
 .astrodivider {
   margin: 64px auto;
   width: 400px;
