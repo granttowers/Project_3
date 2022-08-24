@@ -321,12 +321,11 @@
   outline-width: 10px;
   font-size: 14pt;
   text-align: center;
-
 }
 
 .box_project {
-  height: 2000px;
-  width: 1200px;
+  height: 4000px;
+  width: 1600px;
   padding: 50px;
   margin-bottom: 20px;
   margin-top: 50px;
@@ -339,7 +338,6 @@
   outline-width: 10px;
   font-size: 14pt;
   text-align: center;
-
 }
 
 .column_comp {
