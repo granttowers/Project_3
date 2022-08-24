@@ -5,10 +5,12 @@
   padding: 0px;} */
 
 
- table, th, td {
-    border: 1px solid #000000;
-    font-size: 12pt;
- }
+table,
+th,
+td {
+  border: 1px solid #000000;
+  font-size: 12pt;
+}
 
 .astrodivider {
   margin: 64px auto;
@@ -128,7 +130,7 @@
   margin-top: 10;
   text-align: left;
   font-size: 14pt;
-  }
+}
 
 #otherparafonts {
   font-style: normal;
@@ -158,14 +160,12 @@
   font-size: 14;
   color: rgb(255, 196, 0);
   text-align: center;
-
-
 }
 
 .answerbox {
-  height: 400px;
+  height: 1000px;
   /* width: 1500px; */
-  padding: 200px;
+  padding: 100px;
   margin-bottom: 200px;
   margin-top: 200px;
   margin-left: 200px;
@@ -176,7 +176,7 @@
   outline-color: turquoise;
   outline-width: 10px;
   font-size: xx-large;
-  text-align: center;
+  text-align: left;
 
 }
 
@@ -184,7 +184,7 @@
   height: 400px;
   /* width: 1500px; */
   padding: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   margin-top: 200px;
   margin-left: 200px;
   margin-right: 200px;
@@ -200,7 +200,7 @@
 
 .visbox {
   height: 970px;
-  width: 1080px;  
+  width: 1080px;
   padding: 50px;
   margin-bottom: 200px;
   margin-top: 200px;
