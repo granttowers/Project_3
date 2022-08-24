@@ -16,30 +16,40 @@ app = Flask(__name__)
 ###################################################
 
 # Route to render the home page template
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
 # Route to the project page template
+
+
 @app.route("/project.html")
 def project():
     return render_template("project.html")
 
 # Route to the questions page template
+
+
 @app.route("/questions.html")
 def questions():
     return render_template("questions.html")
 
 # Route to the visualisations page template
+
+
 @app.route("/Visualisations.html")
 def visualisations():
     return render_template("Visualisations.html")
 
 # Route to the incident prediction page template
+
+
 @app.route("/Answer=<sex>=<age>=<occupation>=<operational_process>")
 def answers(sex, age, occupation, operational_process):
 
-# Binary values for Sex
+    # Binary values for Sex
     if sex == 'Female':
         Sex_Female = 1
         Sex_Male = 0
@@ -141,7 +151,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Mobile_Plant_Operator_Roles = 0
         Occupation_Other_Role = 0
         Occupation_Technical_Services_Roles = 0
-        Occupation_Trades_Roles	= 0
+        Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
     elif age == 'Driller and Support Roles':
@@ -169,7 +179,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Mobile_Plant_Operator_Roles = 0
         Occupation_Other_Role = 0
         Occupation_Technical_Services_Roles = 0
-        Occupation_Trades_Roles	= 0
+        Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
     elif age == 'Fixed Plant Operator and Support Roles':
@@ -183,7 +193,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Mobile_Plant_Operator_Roles = 0
         Occupation_Other_Role = 0
         Occupation_Technical_Services_Roles = 0
-        Occupation_Trades_Roles	= 0
+        Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
     elif age == 'Labourer Roles':
@@ -253,7 +263,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Mobile_Plant_Operator_Roles = 0
         Occupation_Other_Role = 1
         Occupation_Technical_Services_Roles = 0
-        Occupation_Trades_Roles	= 0
+        Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
     elif age == 'Technical Services':
@@ -267,7 +277,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Mobile_Plant_Operator_Roles = 0
         Occupation_Other_Role = 0
         Occupation_Technical_Services_Roles = 1
-        Occupation_Trades_Roles	= 0
+        Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
     elif age == 'Trade Roles':
@@ -302,7 +312,7 @@ def answers(sex, age, occupation, operational_process):
     if operational_process == 'Crushing or Processing':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 1
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -313,7 +323,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Coal Mining Culm Banks Activities':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 1
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -324,7 +334,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Dredging Acvitites':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 1
+        Operational_Process_Dredging_Activities = 1
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -335,7 +345,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Non Mine Workshops and Yards':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 1
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -346,7 +356,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Office Activites':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 1
         Operational_Process_Other_Surface_Facility = 0
@@ -357,7 +367,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Other Surface Facility':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 1
@@ -368,7 +378,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Surface Mining Operations':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -379,7 +389,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Underground Workshops and Yards':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -390,7 +400,7 @@ def answers(sex, age, occupation, operational_process):
     elif operational_process == 'Underground Mining Operations':
         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-        Operational_Process_Dredging_Activities	= 0
+        Operational_Process_Dredging_Activities = 0
         Operational_Process_Non_Mine_Workshops_and_Yards = 0
         Operational_Process_Office_Located_on_Mine = 0
         Operational_Process_Other_Surface_Facility = 0
@@ -754,7 +764,6 @@ def answers(sex, age, occupation, operational_process):
 #         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
 #         Operational_Process_Underground_Mining_Operations = 1
 
-
     # Import Machine Learning Models - Nature of Injury (NOI), Injured Body Part (IBP), Source of Injury (SOI) and Activity (ACT)
     NOI_model = 'NOI_rf.pickle'
     NOI_loaded_model = pickle.load(open(NOI_model, 'rb'))
@@ -769,10 +778,11 @@ def answers(sex, age, occupation, operational_process):
     ACT_loaded_model = pickle.load(open(ACT_model, 'rb'))
 
     # Full response table to collate the response values
-    response = [Sex_Male, Sex_Female, Age_Under_20, Age_20_29, Age_30_39, Age_40_49, Age_50_59, Age_60_69, Age_70_79, Age_80_89, Occupation_Apprentice_or_Trainee_Roles, Occupation_Driller_and_Support_Roles, Occupation_Explosives_Roles, Occupation_Fixed_Plant_Operator_and_Support_Roles, Occupation_Labourer_Roles, Occupation_Maritime_Roles, Occupation_Mine_Supervisory_and_Management_Roles, Occupation_Mobile_Plant_Operator_Roles, Occupation_Other_Role, Occupation_Technical_Services_Roles, Occupation_Trades_Roles, Occupation_Underground_Miner_and_Support_Roles, Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations]
+    response = [Sex_Male, Sex_Female, Age_Under_20, Age_20_29, Age_30_39, Age_40_49, Age_50_59, Age_60_69, Age_70_79, Age_80_89, Occupation_Apprentice_or_Trainee_Roles, Occupation_Driller_and_Support_Roles, Occupation_Explosives_Roles, Occupation_Fixed_Plant_Operator_and_Support_Roles, Occupation_Labourer_Roles, Occupation_Maritime_Roles, Occupation_Mine_Supervisory_and_Management_Roles, Occupation_Mobile_Plant_Operator_Roles, Occupation_Other_Role, Occupation_Technical_Services_Roles, Occupation_Trades_Roles,
+                Occupation_Underground_Miner_and_Support_Roles, Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards, Operational_Process_Culm_Banks_Activities_Coal_Mining_Only, Operational_Process_Dredging_Activities, Operational_Process_Non_Mine_Workshops_and_Yards, Operational_Process_Office_Located_on_Mine, Operational_Process_Other_Surface_Facility, Operational_Process_Surface_Mining_Operations, Operational_Process_Underground_Mine_Surface_Workshops_and_Yards, Operational_Process_Underground_Mining_Operations]
 
     # Clear the results list
-    results_list =[]
+    results_list = []
 
     # Append the new response values to the results_list list
     for item in response:
@@ -788,13 +798,7 @@ def answers(sex, age, occupation, operational_process):
     ACT_prediction = ACT_loaded_model.predict(new_value)
 
     # Calling the predictions:
-    answer =     f"<h1>Your Results Are...<br><br>" 
-    f"The predicted Nature of Injury will be:   {NOI_prediction}<br>"
-    f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
-    f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
-    f"The predicted Activity will be:   {ACT_prediction}<br>"
-    
-
+    answer = f"Your Results Are...<br><br>The predicted Nature of Injury will be:   {NOI_prediction}<br>The predicted Injured Body Part will be:   {IBP_prediction}<br>The predicted Source of Injury will be:   {SOI_prediction}<br>The predicted Activity will be:   {ACT_prediction}<br>"
 
     # Unsure about this bit...
     return render_template("Answer.html", answer=answer)
@@ -810,6 +814,7 @@ def answers(sex, age, occupation, operational_process):
 #     f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
 #     f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
 #     f"The predicted Activity will be:   {ACT_prediction}<br>"
+
 
 if __name__ == '__main__':
     app.debug = True
