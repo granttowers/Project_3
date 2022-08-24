@@ -51,12 +51,6 @@
       }
     </style>
     <div class="box_project">
-      <h1 id="otherfontsproject">What can 4,836 incidents reported to the US Mining Regulator Teach Us?</h1>
-
-      <div class="astrodivider">
-        <div class="astrodividermask"></div><span><i>&#10038;</i></span>
-      </div>
-
       <h1 id="otherfontsproject">Project Intent and Purpose </h1>
 
       <p id="otherpara2fonts">We want to develop a series of visualisations depicting elements of the incident data
@@ -82,12 +76,16 @@
 
       <h1 id="otherfontsproject">Project Technical Summary</h1>
 
+
+  
       <h3 id="otherfontsproject2">1. Data Preparation:</h3>
       <p id="otherpara2fonts">- Extracted the raw data from <a href="https://www.cdc.gov/niosh/mining/data/">US CDC
-          Website</a><br>
+          Website</a> and to download our complete (unedited) dataset <a href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/incident_data.csv">click here</a>.<br>
         - Complete Significant Data Cleanup and Grouping as required.<br>
         - Identify the 'target' data for our Machine Learning Models.<br>
         - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
+
+
 
       <h3 id="otherfontsproject2">2. Database/Hosting:</h3>
       <p id="otherpara2fonts">- Created the RDS Server to house the Postgress DB.<br>
@@ -96,9 +94,13 @@
         - Create a Heroku Instance and connect to GitHub Repo.<br>
         - Deploy the Heroku Website <a href="https://grantnickproj3.herokuapp.com/">Our Project Link</a>.<br><br></p>
 
+
+
       <h3 id="otherfontsproject2">3. Data Migration and ETL:</h3>
       <p id="otherpara2fonts">- Complete significant data transformation initial incident file.<br>
         - Push clean incident data into the Postgress DB.</p><br><br>
+
+
 
       <h3 id="otherfontsproject2">4. Initial Visualisations:</h3>
       <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required
@@ -113,12 +115,14 @@
         5. 'Total Injuries vs Days Lost'<br>
         6. 'The Most Injured Body Part'</p><br><br>
 
+
+
       <h3 id="otherfontsproject2">5. Machine Learning:</h3>
       <p id="otherpara2fonts">The Machine Learning element of our project we wanted to focus on a predictive model in
-        which we could get a person to enter some basic personal details, then a model will be able to predict the types
-        of injuries that they may incur during their work life.<br><br>
+        which we could get a person to enter some basic personal details, then a model will be able to predict the most
+        likely scenarios for injuries that they may incur during their work life.<br><br>
 
-        In orer to do this, we selected the following columns:<br>
+        In orer to do this, we selected the following columns to create our model:<br>
         1. 'Sex' (Female/Male)<br>
         2. 'Age' (Grouped by Decades)<br>
         3. 'Occupation' (Grouped Data into General Occupation Types that we determined)<br>
@@ -127,31 +131,44 @@
         The machine learning model will then use the related incident details selected to predict the outcome based on
         the previous incident data.<br><br>
 
-        Overall, we did find variance between the 'accuracty' of the models, based on the number of output criteria the
+        Overall, we did find variance between the 'accuracy' of the models, based on the number of output criteria the
         model has to predict from.<br><br>
 
         Our Models Predict the following:<br>
         1. 'Nature of Injury' - Overall Model Accuracy: 30.0% (Possible Outcomes: 31 options)<br>
         2. 'Injured Body Part' - Overall Model Accuracy: 24.9% (Possible Oucomes: 8 options)<br>
         3. 'Source of Injury' - Overall Model Accuracy: 13.9% (Possible Outcomes: 107 options)<br>
-        4. 'Activity' - Overall Model Accuracy: 22.17% (Possible Outcomes: 82 options)<br>
+        4. 'Activity' - Overall Model Accuracy: 22.2% (Possible Outcomes: 82 options)<br>
+
+
 
       <h3 id="otherfontsproject2">6. Flask App:</h3>
       <p id="otherpara2fonts">- to be confirmed...<br><br></p>
 
+
+
       <h3 id="otherfontsproject2">7. HTML Pages:</h3>
-      <p id="otherpara2fonts">- Build Home Page Details
-        - Append the Tableau Images, Create Text etc.
-        - What to do about predictive...?</p><br><br>
+      <p id="otherpara2fonts">There are current 5 pages in our webpage:<br>
+        - Our Home Page - <a href="https://grantnickproj3.herokuapp.com/">Link</a><br>
+        - Project Summary (this page) - <a href="https://grantnickproj3.herokuapp.com/project.html">Link</a><br>
+        - Key Data Visualisations - <a href="https://grantnickproj3.herokuapp.com/Visualisations.html">Link</a><br>
+        - Employee Questions - <a href="https://grantnickproj3.herokuapp.com/questions.html">Link</a><br>
+        - Employee Answers - Note: Link will change depending on selection, <a href="https://grantnickproj3.herokuapp.com/Answer=Male=Under%2020=Apprentice%20or%20Trainee=Crushing%20or%20Processing">Example Link</a><br></p><br><br>
+
+
 
       <h3 id="otherfontsproject2">8. Presentation:</h3>
-      <p id="otherpara2fonts">- Basically a summary of the steps above... (to be completed)
-        - Use Same Template as last project?
+      <p id="otherpara2fonts">The last element of our project is our presentation. This can be found <a href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/Project+3.pptx">Example Link</a><br></p><br><br>
+
       </p><br><br>
 
       <div class="astrodivider">
         <div class="astrodividermask"></div><span><i>&#10038;</i></span>
       </div>
+
+
+
+
 
       <h1 id="otherfontsproject">Observations from Model </h1>
       <p id="otherpara2fonts">quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
