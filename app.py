@@ -787,26 +787,29 @@ def answers(sex, age, occupation, operational_process):
     SOI_prediction = SOI_loaded_model.predict(new_value)
     ACT_prediction = ACT_loaded_model.predict(new_value)
 
-    # Variables to store the predictions
-    NOI_prediction
-    IBP_prediction
-    SOI_prediction
-    ACT_prediction
+    # Calling the predictions:
+    answer =     f"<h1>Your Results Are...<br><br>" 
+    f"The predicted Nature of Injury will be:   {NOI_prediction}<br>"
+    f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
+    f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
+    f"The predicted Activity will be:   {ACT_prediction}<br>"
+    
+
 
     # Unsure about this bit...
-    return render_template("Answer.html")
-    # f"Summary of Feedback Provided:<br>"
-    # f"Gender: {sex}<br>"
-    # f"Age: {age}<br>"
-    # f"Occupation: {occupation}<br>"
-    # f"Operational Process: {operational_process}<br>"
-    # f"<br>"
-    # f"<br>"
-    # f"<h1>Your Results Are..."
-    # f"The predicted Nature of Injury will be:   {NOI_prediction}<br>"
-    # f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
-    # f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
-    # f"The predicted Activity will be:   {ACT_prediction}<br>"
+    return render_template("Answer.html", answer=answer)
+# f"Summary of Feedback Provided:<br>"
+#     f"Gender: {sex}<br>"
+#     f"Age: {age}<br>"
+#     f"Occupation: {occupation}<br>"
+#     f"Operational Process: {operational_process}<br>"
+#     f"<br>"
+#     f"<br>"
+#     f"<h1>Your Results Are..."
+#     f"The predicted Nature of Injury will be:   {NOI_prediction}<br>"
+#     f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
+#     f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
+#     f"The predicted Activity will be:   {ACT_prediction}<br>"
 
 if __name__ == '__main__':
     app.debug = True
