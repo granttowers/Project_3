@@ -801,7 +801,7 @@ def answers(sex, age, occupation, operational_process):
     answer = f"Your Results Are...<br><br>The predicted Nature of Injury will be:   {NOI_prediction}<br>The predicted Injured Body Part will be:   {IBP_prediction}<br>The predicted Source of Injury will be:   {SOI_prediction}<br>The predicted Activity will be:   {ACT_prediction}<br>"
 
     # Unsure about this bit...
-    return render_template("Answer.html", answer=answer, NOI_prediction=NOI_prediction, IBP_prediction=IBP_prediction, SOI_prediction=SOI_prediction, ACT_prediction=ACT_prediction)
+    return render_template("Answer.html", answer=answer, NOI_prediction=NOI_prediction[0], IBP_prediction=IBP_prediction[0], SOI_prediction=SOI_prediction[0], ACT_prediction=ACT_prediction[0])
 # f"Summary of Feedback Provided:<br>"
 #     f"Gender: {sex}<br>"
 #     f"Age: {age}<br>"
