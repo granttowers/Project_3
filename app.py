@@ -792,16 +792,16 @@ def answers(sex, age, occupation, operational_process):
     new_value = np.expand_dims(new_value, 0)
 
     # Use the new value to generate a predictions for each model to new variable
-    NOI_prediction = NOI_loaded_model.predict(new_value[0])
-    IBP_prediction = IBP_loaded_model.predict(new_value[0])
-    SOI_prediction = SOI_loaded_model.predict(new_value[0])
-    ACT_prediction = ACT_loaded_model.predict(new_value[0])
+    NOI_prediction = NOI_loaded_model.predict(new_value)
+    IBP_prediction = IBP_loaded_model.predict(new_value)
+    SOI_prediction = SOI_loaded_model.predict(new_value)
+    ACT_prediction = ACT_loaded_model.predict(new_value)
 
     # Calling the predictions:
     answer = f"Your Results Are...<br><br>The predicted Nature of Injury will be:   {NOI_prediction}<br>The predicted Injured Body Part will be:   {IBP_prediction}<br>The predicted Source of Injury will be:   {SOI_prediction}<br>The predicted Activity will be:   {ACT_prediction}<br>"
 
     # Unsure about this bit...
-    return render_template("Answer.html", answer=answer)
+    return render_template("Answer.html", answer=answer, NOI_prediction=NOI_prediction, IBP_prediction=IBP_prediction, SOI_prediction=SOI_prediction, ACT_prediction=ACT_prediction)
 # f"Summary of Feedback Provided:<br>"
 #     f"Gender: {sex}<br>"
 #     f"Age: {age}<br>"
