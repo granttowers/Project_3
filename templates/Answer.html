@@ -52,9 +52,28 @@
     </style>
 
     <div class="answerbox">
-      <p> Here are the Predictions based upon your selection:</p>
+      <h1 id="otherfontsproject">Just to confirm - you entered the following values:"</h1><br>
+      <table id="InputEnteredTable">
+        <tr>
+          <td>Gender:</td>
+          <td>{{sex}}</td>
+        </tr>
+        <tr>
+          <td>Age Group:</td>
+          <td>{{age}}</td>
+        </tr>
+        <tr>
+          <td>Occupation:</td>
+          <td>{{occupation}}</td>
+        </tr>
+        <tr>
+          <td>Operational Process:</td>
+          <td>{{operational_process}}</td>
+        </tr>
+      </table><br>
 
-      <table id="AnswerTable">
+      <h1 id="otherfontsproject">Here are the Predictions based upon your selection:"</h1><br>
+      <table id="PredictionTable">
         <tr>
           <td>Nature of Injury Prediction:</td>
           <td>{{NOI_prediction}}</td>
@@ -72,7 +91,6 @@
           <td>{{ACT_prediction}}</td>
         </tr>
       </table>
-
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>

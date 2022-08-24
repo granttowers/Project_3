@@ -154,7 +154,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Driller and Support Roles':
+    elif occupation == 'Driller and Support Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 1
         Occupation_Explosives_Roles = 0
@@ -168,7 +168,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Explosives Roles':
+    elif occupation == 'Explosives Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 1
@@ -182,7 +182,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Fixed Plant Operator and Support Roles':
+    elif occupation == 'Fixed Plant Operator and Support Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -196,7 +196,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Labourer Roles':
+    elif occupation == 'Labourer Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -210,7 +210,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Maritime Roles':
+    elif occupation == 'Maritime Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -224,7 +224,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Supervisory and Management Roles':
+    elif occupation == 'Supervisory and Management Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -238,7 +238,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Mobile Plant Operators':
+    elif occupation == 'Mobile Plant Operators':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -252,7 +252,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Other Roles':
+    elif occupation == 'Other Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -266,7 +266,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Technical Services':
+    elif occupation == 'Technical Services':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -280,7 +280,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 0
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Trade Roles':
+    elif occupation == 'Trade Roles':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -294,7 +294,7 @@ def answers(sex, age, occupation, operational_process):
         Occupation_Trades_Roles = 1
         Occupation_Underground_Miner_and_Support_Roles = 0
 
-    elif age == 'Underground Mine and Support':
+    elif occupation == 'Underground Mine and Support':
         Occupation_Apprentice_or_Trainee_Roles = 0
         Occupation_Driller_and_Support_Roles = 0
         Occupation_Explosives_Roles = 0
@@ -408,362 +408,6 @@ def answers(sex, age, occupation, operational_process):
         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
         Operational_Process_Underground_Mining_Operations = 1
 
-
-# # Binary values for Sex
-#     if sex == 'Female':
-#         Sex_Female = 1
-#         Sex_Male = 0
-
-#     # Binary values for Age
-#     if age == 'Age_Under_20':
-#         Age_Under_20 = 1
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_20_29':
-#         Age_Under_20 = 0
-#         Age_20_29 = 1
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_30_39':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 1
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_40_49':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 1
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_50_59':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 1
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_60_69':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 1
-#         Age_70_79 = 0
-#         Age_80_89 = 0
-
-#     elif age == 'Age_70_79':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 1
-#         Age_80_89 = 0
-
-#     elif age == 'Age_80_89':
-#         Age_Under_20 = 0
-#         Age_20_29 = 0
-#         Age_30_39 = 0
-#         Age_40_49 = 0
-#         Age_50_59 = 0
-#         Age_60_69 = 0
-#         Age_70_79 = 0
-#         Age_80_89 = 1
-
-#     # Binary values for Occupation
-#     if occupation == 'Occupation_Apprentice_or_Trainee_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 1
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles	= 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Driller_and_Support_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 1
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Explosives_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 1
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles	= 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Fixed_Plant_Operator_and_Support_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 1
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles	= 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Labourer_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 1
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Maritime_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 1
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Mine_Supervisory_and_Management_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 1
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Mobile_Plant_Operator_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 1
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Other_Role':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 1
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles	= 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Technical_Services_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 1
-#         Occupation_Trades_Roles	= 0
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Trades_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 1
-#         Occupation_Underground_Miner_and_Support_Roles = 0
-
-#     elif age == 'Occupation_Underground_Miner_and_Support_Roles':
-#         Occupation_Apprentice_or_Trainee_Roles = 0
-#         Occupation_Driller_and_Support_Roles = 0
-#         Occupation_Explosives_Roles = 0
-#         Occupation_Fixed_Plant_Operator_and_Support_Roles = 0
-#         Occupation_Labourer_Roles = 0
-#         Occupation_Maritime_Roles = 0
-#         Occupation_Mine_Supervisory_and_Management_Roles = 0
-#         Occupation_Mobile_Plant_Operator_Roles = 0
-#         Occupation_Other_Role = 0
-#         Occupation_Technical_Services_Roles = 0
-#         Occupation_Trades_Roles = 0
-#         Occupation_Underground_Miner_and_Support_Roles = 1
-
-# # Binary values for Operational Process
-#     if operational_process == 'Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 1
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Culm_Banks_Activities_Coal_Mining_Only':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 1
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Dredging_Activities':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 1
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Non_Mine_Workshops_and_Yards':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 1
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Office_Located_on_Mine':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 1
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Other_Surface_Facility':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 1
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Surface_Mining_Operations':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 1
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Underground_Mine_Surface_Workshops_and_Yards':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 1
-#         Operational_Process_Underground_Mining_Operations = 0
-
-#     elif operational_process == 'Operational_Process_Underground_Mining_Operations':
-#         Operational_Process_Crushing_or_Processing_Facility_Incl_Associated_Workshops_and_Yards = 0
-#         Operational_Process_Culm_Banks_Activities_Coal_Mining_Only = 0
-#         Operational_Process_Dredging_Activities	= 0
-#         Operational_Process_Non_Mine_Workshops_and_Yards = 0
-#         Operational_Process_Office_Located_on_Mine = 0
-#         Operational_Process_Other_Surface_Facility = 0
-#         Operational_Process_Surface_Mining_Operations = 0
-#         Operational_Process_Underground_Mine_Surface_Workshops_and_Yards = 0
-#         Operational_Process_Underground_Mining_Operations = 1
-
     # Import Machine Learning Models - Nature of Injury (NOI), Injured Body Part (IBP), Source of Injury (SOI) and Activity (ACT)
     NOI_model = 'NOI_rf.pickle'
     NOI_loaded_model = pickle.load(open(NOI_model, 'rb'))
@@ -797,24 +441,8 @@ def answers(sex, age, occupation, operational_process):
     SOI_prediction = SOI_loaded_model.predict(new_value)
     ACT_prediction = ACT_loaded_model.predict(new_value)
 
-    # Calling the predictions:
-    answer = f"Your Results Are...<br><br>The predicted Nature of Injury will be:   {NOI_prediction}<br>The predicted Injured Body Part will be:   {IBP_prediction}<br>The predicted Source of Injury will be:   {SOI_prediction}<br>The predicted Activity will be:   {ACT_prediction}<br>"
-
-    # Unsure about this bit...
-    return render_template("Answer.html", answer=answer, NOI_prediction=NOI_prediction[0], IBP_prediction=IBP_prediction[0], SOI_prediction=SOI_prediction[0], ACT_prediction=ACT_prediction[0])
-# f"Summary of Feedback Provided:<br>"
-#     f"Gender: {sex}<br>"
-#     f"Age: {age}<br>"
-#     f"Occupation: {occupation}<br>"
-#     f"Operational Process: {operational_process}<br>"
-#     f"<br>"
-#     f"<br>"
-#     f"<h1>Your Results Are..."
-#     f"The predicted Nature of Injury will be:   {NOI_prediction}<br>"
-#     f"The predicted Injured Body Part will be:   {IBP_prediction}<br>"
-#     f"The predicted Source of Injury will be:   {SOI_prediction}<br>"
-#     f"The predicted Activity will be:   {ACT_prediction}<br>"
-
+    # Render the 'Answer.html' file, and pass the variable results to be called onto the page.
+    return render_template("Answer.html", sex=sex, age=age, occupation=occupation, operational_process=operational_process, NOI_prediction=NOI_prediction[0], IBP_prediction=IBP_prediction[0], SOI_prediction=SOI_prediction[0], ACT_prediction=ACT_prediction[0])
 
 if __name__ == '__main__':
     app.debug = True
