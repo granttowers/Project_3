@@ -57,8 +57,7 @@
 
       <p id="otherpara2fonts">We wanted to develop a series of visualisations depicting elements of the incident data
         within the US, then create a number of Machine Learning models to allow us to predict (hopefully with some
-        certaintly...) a number
-        of future scenario's, based on the overall incident data.<br>
+        certainty...) a number of future scenario's, based on the overall incident data.<br>
 
       <p id="otherpara2fonts">The Models will all use the 'Sex', 'Age', 'Occupation' and 'Operational Process' column
         data which will be
@@ -79,10 +78,10 @@
           href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/incident_data.csv">click here</a>.<br>
         - Complete Significant Data Cleanup and Grouping as required.<br>
         - Identify the 'target' data for our Machine Learning Models.<br>
-        - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br></p>
+        - Identify the output 'results' that we want to present on the website - "Import Data to Postgres".<br><br></p>
 
       <h3 id="otherfontsproject2">2. Database/Hosting:</h3>
-      <p id="otherpara2fonts">- Created the RDS Server to house the Postgress DB.<br>
+      <p id="otherpara2fonts">- Created the RDS Server to house the Postgres DB.<br>
         - Create the S3 Bucket to store the incident file.<br>
         - Upload the incident data file to the existing data into the S3 bucket.<br>
         - Create a Heroku Instance and connect to GitHub Repo.<br>
@@ -90,7 +89,7 @@
 
       <h3 id="otherfontsproject2">3. Data Migration and ETL:</h3>
       <p id="otherpara2fonts">- Complete significant data transformation initial incident file.<br>
-        - Push clean incident data into the Postgress DB.<br><br></p>
+        - Push clean incident data into the Postgres DB.<br><br></p>
 
       <h3 id="otherfontsproject2">4. Initial Visualisations:</h3>
       <p id="otherpara2fonts">- Connect an export of the 'clean' incident data to Tableau Public to create required
@@ -107,11 +106,11 @@
 
       <h3 id="otherfontsproject2">5. Machine Learning:</h3>
       <p id="otherpara2fonts">for the Machine Learning element of our project we wanted to focus on a predictive model
-        (Random Forrests) in
+        (Random Forests) in
         which we could get a person to enter some basic personal details, then a model will be able to predict the most
         likely scenarios for injuries that they may incur during their work life.<br><br>
 
-        In orer to do this, we selected the following columns to create our model:<br>
+        In order to do this, we selected the following columns to create our model:<br>
         1. 'Sex' (Female/Male)<br>
         2. 'Age' (Grouped by Decades)<br>
         3. 'Occupation' (Grouped Data into General Occupation Types that we determined)<br>
@@ -125,22 +124,23 @@
 
         Our Models Predict the following:<br>
         1. 'Nature of Injury' - Overall Model Accuracy: 30.0% (Possible Outcomes: 31 options)<br>
-        2. 'Injured Body Part' - Overall Model Accuracy: 24.9% (Possible Oucomes: 8 options)<br>
+        2. 'Injured Body Part' - Overall Model Accuracy: 24.9% (Possible Outcomes: 8 options)<br>
         3. 'Source of Injury' - Overall Model Accuracy: 13.9% (Possible Outcomes: 107 options)<br>
         4. 'Activity' - Overall Model Accuracy: 22.2% (Possible Outcomes: 82 options)<br><br>
 
-        Overall we have 5,325 incident in our database. Once the models were trained and finalised, we exported the data
+        Overall, we have 5,325 incident in our database. Once the models were trained and finalised, we exported the
+        data
         models using the 'pickle' to separate files, so
         we could import the models into our flask app, to make the predictions to our submitted data.<br><br></p>
 
       <h3 id="otherfontsproject2">6. app.py and app.js Functions:</h3>
-      <p id="otherpara2fonts">There is a sequential process which is occuring to make our data model function as
+      <p id="otherpara2fonts">There is a sequential process which is occurring to make our data model function as
         experienced, as follows:<br><br>
 
-        1. 'app.py' renders all of the webiste templates - then we get to the 'questions.html' page.<br>
-        2. 'app.js' creates all of the drop down boxes and values, then once the user selects their data and clicks the
+        1. 'app.py' renders all of the website templates - then we get to the 'questions.html' page.<br>
+        2. 'app.js' creates all of the drop-down boxes and values, then once the user selects their data and clicks the
         'Get my Predictions' button.<br>
-        3. Within the 'app.js file, there are mapped out options for all possible values, so that the app stores the
+        3. Within the 'app.js' file, there are mapped out options for all possible values, so that the app stores the
         binary code for each option (based on the selection) and collates it.<br>
         4. A concatenated text string is created and used to navigate to the 'Answer.html' page.<br>
         5. During this process, the submitted information is reverted to 'app.py', reconverted to align with our data
@@ -153,14 +153,15 @@
         to call them and present them in 'Answer.html', which we can all see.<br><br></p>
 
       <h3 id="otherfontsproject2">7. HTML Pages:</h3>
-      <p id="otherpara2fonts">There are currently 5 pages in our site:<br>
+      <p id="otherpara2fonts">There are currently 6 pages in our site:<br>
         - Our Home Page - <a href="https://grantnickproj3.herokuapp.com/">Link</a><br>
         - Project Summary (this page) - <a href="https://grantnickproj3.herokuapp.com/project.html">Link</a><br>
         - Key Data Visualisations - <a href="https://grantnickproj3.herokuapp.com/Visualisations.html">Link</a><br>
         - Employee Questions - <a href="https://grantnickproj3.herokuapp.com/questions.html">Link</a><br>
         - Employee Answers - Note: Link will change depending on selection - <a
           href="https://grantnickproj3.herokuapp.com/Answer=Male=Under%2020=Apprentice%20or%20Trainee=Crushing%20or%20Processing">Example
-          Link</a><br><br></p>
+          Link</a><br>
+        - About Us - <a href="https://grantnickproj3.herokuapp.com/about.html">Link</a><br><br></p>
 
       <h3 id="otherfontsproject2">8. Presentation:</h3>
       <p id="otherpara2fonts">The last element of our project is our presentation. This can be found <a
@@ -169,13 +170,15 @@
       <h1 id="otherfontsproject">Observations, Limitations and Potential Enhancements to Model</h1>
       <h3 id="otherfontsproject2">Observations and Limitations:</h3>
       <p id="otherpara2fonts">
-        What we set out to achieve (creating a predictive model based upon selected critieria) has been successful.
-        However, we both learned a critical limitation to the model that any person referring to this model needs to
-        understand.<br><br>
+        What we set out to achieve (creating a predictive model based upon selected criteria) has been
+        successful.<br><br>
 
-        The model uses previously recorded incident data to make a prediction and although we have a large amount of
-        data, the more filters, or additional parameters you add to the model, the smaller the dataset is to make a
-        prediction.<br><br></p>
+        However, we both learned a critical limitation to the model - that any person referring to this model needs to
+        understand. The model uses previously recorded incident data to make a prediction and although we have a large
+        amount of data, the more filters, or additional parameters you add to the model, the smaller the dataset is to
+        make a prediction.
+        <br><br>
+      </p>
 
       <table>
         <tr>
@@ -230,28 +233,27 @@
         </tr>
       </table><br>
 
-      <p id="otherpara2fonts">For example below, using only age, if we were trying to predict an outcome, selecting the
-        age group of '80 - 89'
-        will only give the model 4 incidents to make a prediction.<br><br>
+      <p id="otherpara2fonts">For example above - persons aged 70+ have a very small pool of incidents, so the model's
+        potential to be correct would be lower (as there is less data to predict from)
 
-        On those 4 values, depending on the other selected criteria, the potential for an 'innacurate' prediction gets
-        higher, as there limited data for the model to predict.
+        In this case, it is a better idea to group the 50 - 89's together (as this would likely not impact the outcome.
 
-        Considering this, the prediction model can be easily manipulated if have small numbers of outlying data and
-        needs to be considering accordingly.<br><br></p>
+        The Key Learning - know your data, then you are able to mold your data to suit the model.
+        .<br><br></p>
 
       <h3 id="otherfontsproject2">Potential Enhancements to Model:</h3>
       <p id="otherpara2fonts">
         There were a number of areas that we feel could improve the model:<br>
-        - As per point above, we could consider focusing on groupings, pershaps consolidating or excluding outlier
-        data.<br>
+        - As per point above, consider focusing on better groupings - consolidate or exclude outlier data.
+        <br>
         - Add more models and/or amend the criteria for selection. We wanted it to be a logical assessment for a new
-        employee, but there could be other varaitions that we could have used, which may result in more accurate
-        predictions.<br>
-        - More model refinement - to group more of the options for the 'Source of Injury' and 'Activity' fields - as a
+        employee, but there are better variations we could have used, which may result in more accurate predictions.
+        <br>
+        - More model refinement - group more of the options for the 'Source of Injury' and 'Activity' fields - as a
         smaller number of options would likely improve the accuracy of the model.<br>
         - Collate More Data - As this model is reliant on data, some of the more obscure occupations/operations end up
-        with less options, therefore the accuract of the model is reduced.</p><br><br>
+        with less options, therefore the accuracy of the model is reduced.
+      </p><br><br>
     </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
