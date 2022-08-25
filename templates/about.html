@@ -42,7 +42,6 @@
       </div>
     </nav>
 
-
     <div class="container-fluid"></div>
     <style>
       body {
@@ -53,52 +52,26 @@
         background-attachment: fixed;
       }
     </style>
+    <div class="box_project">
 
-    <div class="answerbox">
-      <h1 id="otherfontsproject">You entered the following values:</h1><br>
-      <table id="InputEnteredTable">
-        <tr>
-          <td>Gender:</td>
-          <td>{{sex}}</td>
-        </tr>
-        <tr>
-          <td>Age Group:</td>
-          <td>{{age}}</td>
-        </tr>
-        <tr>
-          <td>Occupation:</td>
-          <td>{{occupation}}</td>
-        </tr>
-        <tr>
-          <td>Operational Process:</td>
-          <td>{{operational_process}}</td>
-        </tr>
-      </table><br>
+      <h1 id="otherfontsproject">About The Creators - Nick and Grant</h1>
+      <h3 id="otherfontsproject2"> Nicholas McMahon</h3>
+      <p id="otherpara2fonts">
+        - Complete Significant Data Cleanup and Grouping as required.<br>
+        - Identify the 'target' data for our Machine Learning Models.<br>
+        - Identify the output 'results' that we want to present on the website - "Import Data to Postgress".<br><br>
+        - You can find Nick on Linkedin here <a href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/incident_data.csv">click here</a>.<br></p>
 
-      <h1 id="otherfontsproject">Here are the Predictions based upon your selection:</h1><br>
-      <table id="PredictionTable">
-        <tr>
-          <td>Nature of Injury Prediction:</td>
-          <td>{{NOI_prediction}}</td>
-        </tr>
-        <tr>
-          <td>Injured Body Part Prediction:</td>
-          <td>{{IBP_prediction}}</td>
-        </tr>
-        <tr>
-          <td>Source of Injury Prediction:</td>
-          <td>{{SOI_prediction}}</td>
-        </tr>
-        <tr>
-          <td>Activity Prediction:</td>
-          <td>{{ACT_prediction}}</td>
-        </tr>
-      </table>
-    </div>
+      <h3 id="otherfontsproject2">Grant Towers:</h3>
+      <p id="otherpara2fonts">
+        - Create the S3 Bucket to store the incident file.<br>
+        - Upload the incident data file to the existing data into the S3 bucket.<br>
+        - Create a Heroku Instance and connect to GitHub Repo.<br>
+        - You can find Grant on Linkedin here <a href="https://grantnickproject3.s3.ap-southeast-2.amazonaws.com/incident_data.csv">click here</a>.<br></p>
 
+     
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="static/js/app.js"></script>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -109,8 +82,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-    <!-- D3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
 </body>
 
 </html>
