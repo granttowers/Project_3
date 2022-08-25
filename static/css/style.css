@@ -325,6 +325,23 @@ table, th, td {
   text-align: center;
 }
 
+.box_about {
+  height: 750px;
+  width: 1000px;
+  padding: 50px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  color: rgb(255, 196, 0);
+  background: #01415C;
+  opacity: .7;
+  outline-color: turquoise;
+  outline-width: 10px;
+  font-size: 14pt;
+  text-align: center;
+}
+
 .column_comp {
   float: left;
   width: 40%;
