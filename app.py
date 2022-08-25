@@ -25,6 +25,11 @@ def home():
 def project():
     return render_template("project.html")
 
+# Route to the about us template
+@app.route("/about.html")
+def project():
+    return render_template("about.html")
+
 # Route to the questions page template
 @app.route("/questions.html")
 def questions():
