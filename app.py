@@ -27,7 +27,7 @@ def project():
 
 # Route to the about us template
 @app.route("/about.html")
-def project():
+def about():
     return render_template("about.html")
 
 # Route to the questions page template
