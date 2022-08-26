@@ -105,7 +105,7 @@ button:hover:after {
   font-style: normal;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 500;
-  font-size: small;
+  font-size: smaller;
   color: rgb(255, 196, 0);
   margin-top: 10;
   text-align: center;
