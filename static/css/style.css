@@ -58,12 +58,12 @@ button {
   border: none;
   color: #fff;
   text-align: center;
-  font-size: 26px;
-  padding: 16px;
-  width: 180px;
+  font-size: 20px;
+  padding: 10px;
+  width: 1500px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 36px;
+  margin: 25px;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
 }
 
